@@ -46,34 +46,6 @@ export const themesConfig: ThemesType = {
       },
     },
   },
-  light: {
-    palette: {
-      mode: "light",
-      divider: "#e2e8f0",
-      text: lightPaletteText,
-      primary: {
-        light: "#b3d1d1",
-        main: "#006565",
-        dark: "#003737",
-        contrastText: darkPaletteText.primary,
-      },
-      secondary: {
-        light: "#ffecc0",
-        main: "#FFBE2C",
-        dark: "#ff9910",
-        contrastText: lightPaletteText.primary,
-      },
-      background: {
-        paper: "#FFFFFF",
-        default: "#F0F7F7",
-      },
-      error: {
-        light: "#ffcdd2",
-        main: "#f44336",
-        dark: "#b71c1c",
-      },
-    },
-  },
   dark: {
     palette: {
       mode: "dark",

@@ -6,14 +6,12 @@ const settingsConfig: SettingsConfigType = {
     style: "layout1",
     config: {},
   },
-
   customScrollbars: false,
-
   theme: {
     main: themesConfig.default,
-    navbar: themesConfig.defaultDark,
+    navbar: themesConfig.default,
     toolbar: themesConfig.default,
-    footer: themesConfig.defaultDark,
+    footer: themesConfig.default,
   },
 
   defaultAuth: ["admin"],
