@@ -1,4 +1,4 @@
-import _ from "@lodash";
+import _ from "lodash";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import settingsConfig from "../../../configs/settingsConfig";
 import { User } from "../../../types/userTypes";

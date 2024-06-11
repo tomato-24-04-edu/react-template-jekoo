@@ -1,17 +1,12 @@
-import {
-  createTheme,
-  // getContrastRatio
-} from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import {
   createAsyncThunk,
   createSelector,
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
-import _ from "@lodash";
 import { RootState } from "src/store/store";
 import themesConfig from "src/configs/themeConfig";
-
 const defaultSettings = {
   theme: "default",
   layout: "normal",
@@ -24,6 +19,7 @@ const initialState = {
 export const changeTheme = createAsyncThunk(
   "settings/changeTheme",
   async (theme: "default" | "dark", { dispatch }) => {
+    //나중에 테마 바꿀때 캐치할 미들웨어 액션이 있을 수 있음
     return { theme };
   }
 );
@@ -44,13 +40,11 @@ export const settingsSlice = createSlice({
 });
 
 function generateTheme(theme: string) {
-  return createTheme(
-    theme === "default" ? themesConfig.default : themesConfig.dark
-  );
+  return createTheme(themesConfig[theme]);
 }
 
 export const selectCurrentSettings = (state: RootState) =>
-  state?.settings.current;
+  state.settings.current;
 export const selectCurrentTheme = createSelector(
   selectCurrentSettings,
   (settings) => generateTheme(settings.theme)

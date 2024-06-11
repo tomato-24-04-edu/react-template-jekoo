@@ -144,9 +144,9 @@ export type SettingsConfigType = {
   customScrollbars?: boolean;
   theme: {
     main: ThemeOptions;
-    navbar: ThemeType;
-    toolbar: ThemeType;
-    footer: ThemeType;
+    navbar: ThemeOptions;
+    toolbar: ThemeOptions;
+    footer: ThemeOptions;
   };
   defaultAuth?: string[];
   loginRedirectUrl: string;
