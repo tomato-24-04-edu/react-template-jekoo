@@ -1,4 +1,4 @@
-import { SettingsConfigType } from "./types";
+import { SettingsConfigType } from "./configTypes";
 import themesConfig from "./themeConfig";
 
 const settingsConfig: SettingsConfigType = {
@@ -13,8 +13,7 @@ const settingsConfig: SettingsConfigType = {
     toolbar: themesConfig.default,
     footer: themesConfig.default,
   },
-
-  defaultAuth: ["admin"],
+  defaultAuth: ["user"],
   loginRedirectUrl: "/",
 };
 

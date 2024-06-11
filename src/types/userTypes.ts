@@ -1,4 +1,4 @@
-import { SettingsConfigType } from "../configs/types";
+import { SettingsConfigType } from "../configs/configTypes";
 
 export type User = {
   uid: string;
@@ -7,7 +7,6 @@ export type User = {
     displayName: string;
     photoURL?: string;
     email?: string;
-    shortcuts?: string[];
     settings?: Partial<SettingsConfigType>;
     loginRedirectUrl?: string;
   };

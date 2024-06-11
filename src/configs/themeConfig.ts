@@ -1,4 +1,4 @@
-import { ThemesType } from "./types";
+import { ThemeOptions } from "@mui/material";
 
 export const lightPaletteText = {
   primary: "rgb(17, 24, 39)",
@@ -12,7 +12,7 @@ export const darkPaletteText = {
   disabled: "rgb(156, 163, 175)",
 };
 
-export const themesConfig: ThemesType = {
+export const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
   default: {
     palette: {
       mode: "light",

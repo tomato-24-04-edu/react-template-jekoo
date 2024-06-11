@@ -1,6 +1,5 @@
 import _ from "@lodash";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
 import settingsConfig from "../../../configs/settingsConfig";
 import { User } from "../../../types/userTypes";
 import { PartialDeep } from "type-fest";
@@ -17,7 +16,6 @@ export const setUser = createAsyncThunk<User, User>(
   "user/setUser",
   async (user) => {
     updateRedirectUrl(user);
-
     return user;
   }
 );
@@ -32,21 +30,6 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUserShortcuts: (state, action) => {
-      const oldState = _.cloneDeep(state);
-      const newUser = _.setIn(
-        oldState,
-        "data.shortcuts",
-        action.payload
-      ) as User;
-
-      if (_.isEqual(oldState, newUser)) {
-        return undefined;
-      }
-
-      return newUser;
-    },
-
     setUserSettings: (state, action) => {
       const oldState = _.cloneDeep(state);
       const newUser = _.setIn(
@@ -75,6 +58,7 @@ export const userSlice = createSlice({
     },
     userSignOut: () => initialState,
   },
+
   extraReducers: (builder) => {
     builder.addCase(setUser.fulfilled, (state, action) => {
       const user = action.payload as PartialDeep<User>;
@@ -90,14 +74,12 @@ export const userSlice = createSlice({
       if (!_.isEqual(state, initialState)) {
         return initialState;
       }
-
       return undefined;
     });
   },
 });
 
-export const { userSignOut, updateUser, setUserShortcuts, setUserSettings } =
-  userSlice.actions;
+export const { userSignOut, updateUser, setUserSettings } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state?.user;
 
@@ -110,9 +92,6 @@ export const selectIsUserGuest = (state: RootState) => {
 
   return !userRole || userRole?.length === 0;
 };
-
-export const selectUserShortcuts = (state: RootState) =>
-  state.user?.data?.shortcuts;
 
 export const selectUserSettings = (state: RootState) =>
   state.user?.data?.settings;

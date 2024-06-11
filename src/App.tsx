@@ -20,14 +20,30 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { RouteObject } from "react-router/dist/lib/context";
+import themesConfig from "./configs/themeConfig";
 
+//Type
+import { ThemeType } from "./configs/configTypes";
+
+//Context API
 export type AppContextType = {
   routes: RouteObject[];
 };
 
 const AppContext = createContext<AppContextType>({ routes: [] });
 
+const createThemeCache = (theme:ThemeType) =>
+  createCache({
+    key: `theme-${theme.palette.primary.main}`,
+    stylisPlugins: [],
+    insertionPoint: document.getElementById("emotion-insertion-point"),
+  });
+
 function App() {
+  const mainThemeName = useSelector(selectMainTheme);
+  const mainTheme = themesConfig[mainThemeName];
+
+  // const themeCache =
   const val = useMemo(
     () => ({
       routes,
@@ -41,11 +57,7 @@ function App() {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Provider store={store}>
             <StyledEngineProvider injectFirst>
-              <CacheProvider
-                value={createCache(
-                  emotionCacheOptions[mainTheme] as Options
-                )}
-              >
+              <CacheProvider value={ createThemeCache(mainTheme as Options)}>
                 <Theme theme={mainTheme}>
                   <SnackbarProvider
                     maxSnack={5}

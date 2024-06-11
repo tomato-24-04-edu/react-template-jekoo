@@ -11,6 +11,7 @@ import {
   Layout1ConfigDefaultsType,
   Layout2ConfigDefaultsType,
 } from "./layoutConfig";
+import { ThemeOptions } from "@mui/material";
 
 //Layout types =======================================================
 export type themeLayoutDefaultsProps =
@@ -134,7 +135,6 @@ export type ThemeType = {
   palette: PartialDeep<Palette>;
 };
 
-export type ThemesType = { [key: string]: ThemeType };
 
 export type SettingsConfigType = {
   layout: {
@@ -143,7 +143,7 @@ export type SettingsConfigType = {
   };
   customScrollbars?: boolean;
   theme: {
-    main: ThemeType;
+    main: ThemeOptions;
     navbar: ThemeType;
     toolbar: ThemeType;
     footer: ThemeType;
