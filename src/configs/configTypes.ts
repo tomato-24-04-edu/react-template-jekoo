@@ -8,70 +8,10 @@ import type {
 
 import { PartialDeep } from "type-fest";
 import {
-  Layout1ConfigDefaultsType,
-  Layout2ConfigDefaultsType,
+  DefaultLayoutConfigType,
+  MobileLayOutConfigType,
 } from "./layoutConfig";
 import { ThemeOptions } from "@mui/material";
-
-//Layout types =======================================================
-export type themeLayoutDefaultsProps =
-  | Layout1ConfigDefaultsType
-  | Layout2ConfigDefaultsType;
-
-export type themeLayoutProps = {
-  title: string;
-  defaults: themeLayoutDefaultsProps;
-  form?: ThemeFormConfigTypes;
-};
-
-type RadioOptionType = {
-  name: string;
-  value: string;
-};
-
-type FormFieldBaseType = {
-  title: string;
-};
-
-type RadioFieldType = FormFieldBaseType & {
-  type: "radio";
-  options: RadioOptionType[];
-};
-
-type NumberFieldType = FormFieldBaseType & {
-  type: "number";
-};
-
-type SwitchFieldType = FormFieldBaseType & {
-  type: "switch";
-};
-
-type GroupFieldChildrenType = {
-  [key: string]:
-    | RadioFieldType
-    | SwitchFieldType
-    | NumberFieldType
-    | GroupFieldType;
-};
-
-type GroupFieldType = FormFieldBaseType & {
-  type: "group";
-  children: GroupFieldChildrenType;
-};
-
-type AnyFormFieldType =
-  | RadioFieldType
-  | SwitchFieldType
-  | NumberFieldType
-  | GroupFieldType;
-
-export type ThemeFormConfigTypes = {
-  [key: string]: AnyFormFieldType;
-};
-
-export type themeLayoutConfigsProps = {
-  [key: string]: themeLayoutProps;
-};
 
 //Routes types =======================================================
 export interface IndexRouteObject {
@@ -135,19 +75,11 @@ export type ThemeType = {
   palette: PartialDeep<Palette>;
 };
 
-
 export type SettingsConfigType = {
-  layout: {
-    style?: string;
-    config?: PartialDeep<themeLayoutDefaultsProps>;
-  };
+  layout: DefaultLayoutConfigType;
+
   customScrollbars?: boolean;
-  theme: {
-    main: ThemeOptions;
-    navbar: ThemeOptions;
-    toolbar: ThemeOptions;
-    footer: ThemeOptions;
-  };
+  theme: ThemeOptions;
   defaultAuth?: string[];
   loginRedirectUrl: string;
 };

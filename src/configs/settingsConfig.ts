@@ -1,18 +1,11 @@
 import { SettingsConfigType } from "./configTypes";
 import themesConfig from "./themeConfig";
+import { DefaultLayoutConfig } from "./layoutConfig";
 
 const settingsConfig: SettingsConfigType = {
-  layout: {
-    style: "layout1",
-    config: {},
-  },
+  layout: DefaultLayoutConfig,
   customScrollbars: false,
-  theme: {
-    main: themesConfig.default,
-    navbar: themesConfig.default,
-    toolbar: themesConfig.default,
-    footer: themesConfig.default,
-  },
+  theme: themesConfig.default,
   defaultAuth: ["user"],
   loginRedirectUrl: "/",
 };
