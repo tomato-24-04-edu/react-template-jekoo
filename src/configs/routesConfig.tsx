@@ -1,6 +1,6 @@
-// import Loading from '@/core/Loading';
 import { Navigate } from "react-router-dom";
 import settingsConfig from "./settingsConfig";
+import _ from "lodash";
 import { SettingsConfigType } from "./configTypes";
 import {
   RouteConfigsType,
@@ -8,28 +8,24 @@ import {
   RouteItemType,
   RoutesType,
 } from "./configTypes";
+import MainConfig from "main/pages/main/mainConfig";
 
 const setRoutes = (
   config: RouteConfigType,
   defaultAuth: SettingsConfigType["defaultAuth"] = undefined
 ): RouteItemType[] => {
   let routes = [...config.routes];
-
   routes = routes.map((route) => {
     let auth =
       config.auth || config.auth === null ? config.auth : defaultAuth || null;
-
     auth = route.auth || route.auth === null ? route.auth : auth;
-
     const settings = _.merge({}, config.settings, route.settings);
-
     return {
       ...route,
       settings,
       auth,
     };
   }) as RouteItemType[];
-
   return [...routes];
 };
 
@@ -39,31 +35,18 @@ const generateRoutesFromConfigs = (
 ) => {
   let allRoutes: RouteItemType[] = [];
   configs.forEach((config: RouteConfigType) => {
-    allRoutes = [...allRoutes, setRoutes(config, defaultAuth)];
+    allRoutes = [...allRoutes, ...setRoutes(config, defaultAuth)];
   });
   return allRoutes;
 };
 
-const routeConfigs: RouteConfigsType = [
-  // SignOutConfig,
-  // SignInConfig,
-  // SignUpConfig,
-  // DocumentationConfig,
-  // ...PagesConfigs,
-  // ...UserInterfaceConfigs,
-  // ...DashboardsConfigs,
-  // ...AppsConfigs,
-  // ...authRoleExamplesConfigs
-];
+const routeConfigs: RouteConfigsType = [MainConfig];
 
-/**
- * The routes of the application.
- */
 const routes: RoutesType = [
-  generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
+  ...generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
   {
     path: "/",
-    element: <Navigate to="/main" />,
+    element: <Navigate to="main" />,
     auth: settingsConfig.defaultAuth,
   },
   // {

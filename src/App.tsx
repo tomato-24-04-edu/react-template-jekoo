@@ -3,13 +3,10 @@ import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/material/styles";
 import GlobalTheme from "./configs/utils/ThemeProvider";
 import { RouteObject } from "react-router/dist/lib/context";
-import { useAppSelector, useAppDispatch } from "./store/hooks";
-import {
-  changeTheme,
-  selectCurrentTheme,
-} from "./store/slices/settingSlice/settingSlice";
+import { useAppSelector } from "./store/hooks";
+import { selectCurrentTheme } from "./store/slices/settingSlice/settingSlice";
 import AppProvider from "./AppProvider";
-import themesConfig from "configs/themeConfig";
+import { LayoutProvider } from "main/layouts";
 
 export type AppContextType = {
   routes: RouteObject[];
@@ -18,7 +15,6 @@ export type AppContextType = {
 export const AppContext = createContext<AppContextType>({ routes: [] });
 
 function App() {
-  const dispatch = useAppDispatch();
   const defaultTheme = useAppSelector(selectCurrentTheme);
   return (
     <StyledEngineProvider injectFirst>
@@ -33,7 +29,7 @@ function App() {
             containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
           }}
         >
-          {/* <Layout /> */}
+          <LayoutProvider />
         </SnackbarProvider>
       </GlobalTheme>
     </StyledEngineProvider>
