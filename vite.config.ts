@@ -12,6 +12,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": "/src",
+      store: "/src/store",
+      configs: "/src/configs",
+      types: "/src/types",
+      main: "src/main",
     },
   },
 });

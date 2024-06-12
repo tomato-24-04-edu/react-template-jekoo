@@ -6,7 +6,7 @@ import { PartialDeep } from "type-fest";
 import { RootState } from "../../store";
 import UserModel from "./userModel";
 
-function updateRedirectUrl(user: PartialDeep<User>) {
+function updateRedirectUrl(user: User) {
   if (user?.data?.loginRedirectUrl && user?.data?.loginRedirectUrl !== "") {
     settingsConfig.loginRedirectUrl = user.data.loginRedirectUrl;
   }
@@ -61,7 +61,7 @@ export const userSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(setUser.fulfilled, (state, action) => {
-      const user = action.payload as PartialDeep<User>;
+      const user = action.payload as User;
       const newUser = _.defaults(user, state);
 
       if (_.isEqual(state, newUser)) {
