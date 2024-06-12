@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "store/": ["/src/store/"],
+      "configs/": ["/src/configs/"],
+      "types/": ["/src/types/"],
+      "main/": ["src/main/"]
+    },
     "declaration": true,
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2020",
-      "scripthost"
-    ],
+    "lib": ["dom", "dom.iterable", "es2020", "scripthost"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "allowJs": true,
     "skipLibCheck": true,
@@ -25,13 +26,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src",
-    "tailwind.config.js",
-    "vite.config.mts",
-    "vite-env.d.ts"
-  ],
+  "exclude": ["node_modules"],
+  "include": ["src", "tailwind.config.js", "vite.config.mts", "vite-env.d.ts"]
 }

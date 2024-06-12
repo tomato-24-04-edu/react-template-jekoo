@@ -5,8 +5,9 @@ import {
   createSlice,
   PayloadAction,
 } from "@reduxjs/toolkit";
-import { RootState } from "src/store/store";
-import themesConfig from "src/configs/themeConfig";
+import { RootState } from "store/store";
+import themesConfig from "configs/themeConfig";
+
 const defaultSettings = {
   theme: "default",
   layout: "normal",

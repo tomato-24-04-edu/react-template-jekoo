@@ -6,21 +6,21 @@ Fuse-React에서 deprecated, 교육만을 위한 부분을 제외
 -> CreateAPI, user Slice, Setting Slice사용
 -> Setting Slice
 : 2개 테마, 2개 레이아웃 사용
+
 - light, dark
 - wide(footer 없음)/normal(footer 있음)
 
 -> dynamic injection 사용
 : store 필요없는 부분 ->
 
-------------------------------------------------
+---
 
 template화 후 batch 파일로
 mock API 적용 후, 적용 전 부분으로 git repo를 참조 때릴 예정
 
 제외할 부분
--> 언어방향 캐싱 (실용성 x , 테마와 적용 코드 같음 테마 캐싱으로 대체)
 -> mui/styles (deprecated)
-->  
+-> CachProvider (언어 방향 설정까지는 실용성이 없음)
 ->
 
 주요 변경 점
