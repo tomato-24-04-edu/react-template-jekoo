@@ -15,7 +15,7 @@ export default defineConfig({
       "store/": "/src/store/",
       "configs/": "/src/configs/",
       "types/": "/src/types/",
-      "main/": "src/main/",
+      "main/": "/src/main/",
     },
   },
 });

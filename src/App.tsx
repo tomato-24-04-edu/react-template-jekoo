@@ -1,18 +1,11 @@
-import { createContext, useMemo } from "react";
 import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/material/styles";
 import GlobalTheme from "./configs/utils/ThemeProvider";
-import { RouteObject } from "react-router/dist/lib/context";
 import { useAppSelector } from "./store/hooks";
 import { selectCurrentTheme } from "./store/slices/settingSlice/settingSlice";
 import AppProvider from "./AppProvider";
 import { LayoutProvider } from "main/layouts";
-
-export type AppContextType = {
-  routes: RouteObject[];
-};
-
-export const AppContext = createContext<AppContextType>({ routes: [] });
+import { Router } from "react-router-dom";
 
 function App() {
   const defaultTheme = useAppSelector(selectCurrentTheme);
@@ -29,7 +22,9 @@ function App() {
             containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
           }}
         >
-          <LayoutProvider />
+          <Router>
+            <LayoutProvider />
+          </Router>
         </SnackbarProvider>
       </GlobalTheme>
     </StyledEngineProvider>

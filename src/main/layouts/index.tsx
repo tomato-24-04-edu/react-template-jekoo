@@ -24,7 +24,7 @@ export type RouteMatchType = RouteMatch & {
 
 export const LayoutProvider = () => {
   const selectedSettings = useAppSelector(selectCurrentSettings);
-
+  console.log("hi");
   const newSettings = useRef<SettingsConfigType>(selectedSettings);
 
   const location = useLocation();
