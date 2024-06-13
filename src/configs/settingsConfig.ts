@@ -1,4 +1,4 @@
-import { SettingsConfigType } from "./configTypes";
+import { SettingsConfigType } from "../types/configTypes";
 import themesConfig from "./themeConfig";
 import { DefaultLayoutConfig } from "./layoutConfig";
 

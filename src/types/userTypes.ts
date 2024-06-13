@@ -1,4 +1,4 @@
-import { SettingsConfigType } from "../configs/configTypes";
+import { SettingsConfigType } from "./configTypes";
 
 export type User = {
   uid: string;

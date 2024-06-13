@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import _ from "lodash";
 import routes from "configs/routesConfig";
-import Layout1 from "./layout1";
 import Layout2 from "./layout2";
 import { useAppSelector } from "store/hooks";
 import { selectCurrentSettings } from "store/slices/settingSlice/settingSlice";
-import { SettingsConfigType } from "configs/configTypes";
+import { SettingsConfigType } from "types/configTypes";
 import {
   matchRoutes,
   useLocation,
@@ -24,7 +23,6 @@ export type RouteMatchType = RouteMatch & {
 
 export const LayoutProvider = () => {
   const selectedSettings = useAppSelector(selectCurrentSettings);
-  console.log("hi");
   const newSettings = useRef<SettingsConfigType>(selectedSettings);
 
   const location = useLocation();
@@ -61,11 +59,9 @@ export const LayoutProvider = () => {
     [newSettings.current]
   );
 
-  console.log("1 : ", currentSettings);
-  console.log("2 : ", selectedSettings);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return <>hi hello</>;
+  return <div  className="">hi hello</div>;
 };

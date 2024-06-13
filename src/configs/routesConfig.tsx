@@ -1,13 +1,13 @@
 import { Navigate } from "react-router-dom";
 import settingsConfig from "./settingsConfig";
 import _ from "lodash";
-import { SettingsConfigType } from "./configTypes";
+import { SettingsConfigType } from "../types/configTypes";
 import {
   RouteConfigsType,
   RouteConfigType,
   RouteItemType,
   RoutesType,
-} from "./configTypes";
+} from "../types/configTypes";
 import MainConfig from "main/pages/main/mainConfig";
 
 const setRoutes = (

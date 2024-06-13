@@ -5,7 +5,7 @@ import { PartialDeep } from "type-fest";
 import {
   DefaultLayoutConfigType,
   MobileLayOutConfigType,
-} from "./layoutConfig";
+} from "../configs/layoutConfig";
 import { ThemeOptions } from "@mui/material";
 
 //Routes types =======================================================
@@ -32,8 +32,7 @@ export type ThemeType = {
 };
 
 export type SettingsConfigType = {
-  layout: DefaultLayoutConfigType;
-
+  layout: DefaultLayoutConfigType | MobileLayOutConfigType;
   customScrollbars?: boolean;
   theme: ThemeOptions;
   defaultAuth?: string[];

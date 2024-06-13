@@ -8,10 +8,7 @@ export type LoadingProps = {
 	className?: string;
 };
 
-/**
- * FuseLoading displays a loading state with an optional delay
- */
-function FuseLoading(props: LoadingProps) {
+function Loading(props: LoadingProps) {
 	const { delay = 0, className } = props;
 	const [showLoading, setShowLoading] = useState(!delay);
 
@@ -54,4 +51,4 @@ function FuseLoading(props: LoadingProps) {
 	);
 }
 
-export default FuseLoading;
+export default Loading;

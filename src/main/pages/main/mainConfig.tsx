@@ -1,5 +1,5 @@
 // import { FuseRouteConfigType } from "@fuse/utils/FuseUtils";
-import { RouteConfigType } from "configs/configTypes";
+import { RouteConfigType } from "types/configTypes";
 import MainPage from ".";
 
 const MainConfig: RouteConfigType = {
