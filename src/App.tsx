@@ -6,6 +6,7 @@ import { selectCurrentTheme } from "./store/slices/settingSlice/settingSlice";
 import AppProvider from "./AppProvider";
 import { LayoutProvider } from "main/layouts";
 import { Router } from "react-router-dom";
+import history from "configs/utils/history";
 
 function App() {
   const defaultTheme = useAppSelector(selectCurrentTheme);
@@ -22,7 +23,7 @@ function App() {
             containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
           }}
         >
-          <Router>
+          <Router location={history.location} navigator={history}>
             <LayoutProvider />
           </Router>
         </SnackbarProvider>
