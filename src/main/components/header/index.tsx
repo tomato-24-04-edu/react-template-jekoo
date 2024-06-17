@@ -70,10 +70,6 @@ function Header(props: HeaderProps) {
                 )}
               </>
             )}
-
-          {/* <Hidden lgDown>
-            <NavigationShortcuts />
-          </Hidden> */}
         </div>
 
         <div className="flex h-full items-center px-8">

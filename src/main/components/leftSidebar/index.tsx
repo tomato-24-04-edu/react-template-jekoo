@@ -1,6 +1,6 @@
 import React from "react";
 import List from "@mui/material/List";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
 // import NavItem from "./navbarItems.tsx";
@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks.js";
 import { navigationConfig } from "main/constants/sidebarContents.js";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
+import { ListItem, ListItemButtonProps, ListItemText } from "@mui/material";
 
 const navbarWidth = 230;
 
@@ -16,6 +17,26 @@ type StyledNavBarProps = {
   open: boolean;
   position: string;
 };
+
+type ListItemButtonComponentProps = ListItemButtonProps & {
+  itempadding: number;
+};
+
+const ItemContainer = styled(ListItem)<ListItemButtonComponentProps>(
+  ({ theme, ...props }) => ({
+    minminHeight: 44,
+    width: "100%",
+    borderRadius: "6px",
+    margin: "28px 0 0 0",
+    paddingRight: 16,
+    paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
+    paddingTop: 10,
+    paddingBottom: 10,
+    color: alpha(theme.palette.text.primary, 0.7),
+    fontWeight: 600,
+    letterSpacing: "0.025em",
+  })
+);
 
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
@@ -91,8 +112,51 @@ const LeftSideBar: React.FC = () => {
         <StyledContent className="flex min-h-0 flex-1 flex-col">
           {/* <UserNavbarHeader /> */}
 
-          {/* <Navigation layout="vertical" /> */}
+          <>
+            {navigationConfig.map((e, i) => {
+              return (
+                <ItemContainer
+                  component={e.component}
+                  itempadding={e.itempadding}
+                  className={clsx(
+                    "fuse-list-subheader flex items-center  py-10",
+                    !item.url ? "cursor-default" : ""
+                  )}
+                  onClick={() => onItemClick && onItemClick(item)}
+                  sx={item.sx}
+                  {...itemProps}
+                >
+                  <ListItemText
+                    className="fuse-list-subheader-text"
+                    sx={{
+                      margin: 0,
+                      "& > .MuiListItemText-primary": {
+                        fontSize: 12,
+                        color: (theme) =>
+                          theme.palette.mode === "dark"
+                            ? "secondary.light"
+                            : "secondary.main",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: ".05em",
+                        lineHeight: "20px",
+                      },
 
+                      "& > .MuiListItemText-secondary": {
+                        fontSize: 11,
+                        color: "text.disabled",
+                        letterSpacing: ".06px",
+                        fontWeight: 500,
+                        lineHeight: "1.5",
+                      },
+                    }}
+                    primary={e.title}
+                    secondary={e.subtitle}
+                  />
+                </ItemContainer>
+              );
+            })}
+          </>
           <div className="flex-0 flex items-center justify-center py-48">
             <img
               className="w-full

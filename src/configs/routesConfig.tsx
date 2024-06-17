@@ -9,6 +9,7 @@ import {
   RoutesType,
 } from "../types/configTypes";
 import MainConfig from "main/pages/main/mainConfig";
+import TempConfig from "main/pages/temp/tempConfig";
 
 const setRoutes = (
   config: RouteConfigType,
@@ -40,7 +41,7 @@ const generateRoutesFromConfigs = (
   return allRoutes;
 };
 
-const routeConfigs: RouteConfigsType = [MainConfig];
+const routeConfigs: RouteConfigsType = [MainConfig, TempConfig];
 
 const routes: RoutesType = [
   ...generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
