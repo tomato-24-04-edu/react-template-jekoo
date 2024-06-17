@@ -50,10 +50,10 @@ function Header(props: HeaderProps) {
   return (
     <AppBar
       id="fuse-toolbar"
-      className={clsx("relative z-20 flex shadow", className)}
+      className={clsx("relative z-20 flex shadow ", className)}
       color="default"
       sx={{
-        backgroundColor: currentTheme.palette.background.default,
+        backgroundColor: currentTheme.palette.primary.main,
       }}
       position="static"
       elevation={0}
@@ -76,7 +76,7 @@ function Header(props: HeaderProps) {
           </Hidden> */}
         </div>
 
-        <div className="flex h-full items-center  px-8">
+        <div className="flex h-full items-center px-8">
           <SvgIcon className="mx-0 h-8 w-8 p-0">outline:arrows-expand</SvgIcon>
         </div>
 

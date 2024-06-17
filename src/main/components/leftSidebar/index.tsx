@@ -9,7 +9,7 @@ import { navigationConfig } from "main/constants/sidebarContents.js";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
 
-const navbarWidth = 200;
+const navbarWidth = 230;
 
 type StyledNavBarProps = {
   theme?: Theme;
@@ -19,6 +19,8 @@ type StyledNavBarProps = {
 
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
+    backgroundColor: theme.palette.secondary.main,
+
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
@@ -53,7 +55,6 @@ const StyledContent = styled("div")(() => ({
   backgroundAttachment: "local, scroll",
 }));
 const NavBarContainer = styled("div")(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
   color: theme.palette.text.primary,
   "& ::-webkit-scrollbar": {
     display: "none",
@@ -76,11 +77,12 @@ const LeftSideBar: React.FC = () => {
       position={config.navbar.position}
     >
       <NavBarContainer
-        className={clsx("flex h-full flex-auto flex-col overflow-hidden")}
+        className={clsx("flex h-full py-2 flex-auto flex-col overflow-hidden")}
       >
         <div className="flex h-12  shrink-0 flex-row items-center justify-center ">
-          <div className="mx-4 mt-2 mb-2 items-center flex flex-1">
+          <div className="mx-4 items-center gap-4 flex flex-1">
             <Logo />
+            <span className="text-white font-bold text-3xl">Tomato</span>
           </div>
 
           {/* <NavbarToggleButton className="h-40 w-40 p-0" /> */}
@@ -91,10 +93,11 @@ const LeftSideBar: React.FC = () => {
 
           {/* <Navigation layout="vertical" /> */}
 
-          <div className="flex-0 flex items-center justify-center py-48 opacity-10">
+          <div className="flex-0 flex items-center justify-center py-48">
             <img
-              className="w-full max-w-64"
-              src="assets/images/svg/tomato_icon_1.svg"
+              className="w-full
+              max-w-48"
+              src="assets/images/svg/tomato_icon_2.svg"
               alt="footer logo"
             />
           </div>

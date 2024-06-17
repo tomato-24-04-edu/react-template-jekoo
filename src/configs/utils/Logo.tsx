@@ -22,7 +22,7 @@ function Logo() {
   return (
     <Root className="flex items-center">
       <img
-        className="logo-icon h-10 w-10"
+        className="logo-icon h-12 w-12 "
         src="assets/images/svg/tomato_icon_1.svg"
         alt="logo"
       />
