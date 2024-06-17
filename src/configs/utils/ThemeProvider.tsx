@@ -3,9 +3,6 @@ import { memo, ReactNode, useEffect, useLayoutEffect } from "react";
 import { Theme } from "@mui/material/styles/createTheme";
 import GlobalStyles from "@mui/material/GlobalStyles";
 
-const useEnhancedEffect =
-  typeof window === "undefined" ? useEffect : useLayoutEffect;
-
 type GlobalThemeProps = {
   children: ReactNode;
   theme: Theme;

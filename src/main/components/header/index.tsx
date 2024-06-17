@@ -58,13 +58,13 @@ function Header(props: HeaderProps) {
       position="static"
       elevation={0}
     >
-      <Toolbar className="min-h-48 p-0 md:min-h-64">
-        <div className="flex flex-1 px-16">
+      <Toolbar className="min-h-20 p-0 md:min-h-20">
+        <div className="flex flex-1 px-8">
           {currentLayout.navbar.display &&
             currentLayout.navbar.position === "left" && (
               <>
                 {hidden ? null : (
-                  <SvgIcon className="mx-0 h-40 w-40 p-0">
+                  <SvgIcon className="mx-0 h-8 w-8 p-0">
                     outline:view-list
                   </SvgIcon>
                 )}
@@ -76,8 +76,8 @@ function Header(props: HeaderProps) {
           </Hidden> */}
         </div>
 
-        <div className="flex h-full items-center overflow-x-auto px-8">
-          <SvgIcon className="mx-0 h-40 w-40 p-0">outline:arrows-expand</SvgIcon>
+        <div className="flex h-full items-center  px-8">
+          <SvgIcon className="mx-0 h-8 w-8 p-0">outline:arrows-expand</SvgIcon>
         </div>
 
         {currentLayout.navbar.display &&
