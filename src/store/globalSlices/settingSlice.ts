@@ -1,11 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { ThemeOptions } from "@mui/material";
-import {
-  createAsyncThunk,
-  createSelector,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import { RootState } from "store/store";
 import settingsConfig from "configs/settingsConfig";
 
@@ -16,7 +10,7 @@ const initialState = {
 export const changeTheme = createAsyncThunk(
   "settings/changeTheme",
   async (theme: any, { dispatch }) => {
-    //나중에 테마 바꿀때 캐치할 미들웨어 액션이 있을 수 있음
+    // 나중에 테마 바꿀 때 캐치할 미들웨어 액션이 있을 수 있음
     return { theme };
   }
 );
@@ -26,7 +20,10 @@ export const settingsSlice = createSlice({
   initialState,
   reducers: {
     changeLayout: (state, action) => {
-      state.current.layout = action.payload;
+      state.current.layout = {
+        ...state.current.layout,
+        ...action.payload,
+      };
     },
   },
   extraReducers: (builder) => {
@@ -36,18 +33,18 @@ export const settingsSlice = createSlice({
   },
 });
 
-export const selectCurrentSettings = (state: RootState) =>
-  state.settings.current;
+export const selectCurrentSettings = (state: RootState) => state.settings.current;
+
 export const selectCurrentTheme = createSelector(
   selectCurrentSettings,
   (settings) => createTheme(settings.theme)
 );
+
 export const selectCurrentLayout = createSelector(
   selectCurrentSettings,
   (settings) => settings.layout
 );
 
 export const { changeLayout } = settingsSlice.actions;
-export type settingsSliceType = typeof settingsSlice;
 
 export default settingsSlice.reducer;

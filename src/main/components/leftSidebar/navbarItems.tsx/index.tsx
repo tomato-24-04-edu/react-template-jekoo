@@ -8,6 +8,7 @@ const Root = styled("div")(({ theme }) => ({
   minHeight: 44,
   width: "100%",
   display: "flex",
+  alignItems: "center",
   borderRadius: "6px",
   gap: 20,
   margin: "10px 0 0 0",
@@ -37,15 +38,8 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({
   icon,
 }) => {
   const navigate = useNavigate();
-
-  const handleClick = () => {
-    console.log("Navigating to:", url);
-
-    navigate(url);
-  };
-
   return (
-    <Root onClick={handleClick}>
+    <Root onClick={() => navigate(url)}>
       <SvgIcon>{icon}</SvgIcon>
       <ListItemText
         sx={{

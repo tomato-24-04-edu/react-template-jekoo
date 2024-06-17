@@ -23,7 +23,7 @@ const Root = styled(Box)<SvgIconProps>(
     color: {
       primary: theme.palette.primary.main,
       secondary: theme.palette.secondary.main,
-      background: theme.palette.background.default,
+      background: theme.palette.primary.light,
       inherit: "currentColor",
     }[color] as string,
   })
