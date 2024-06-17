@@ -1,9 +1,10 @@
-export const DefaultLayoutConfig = {
+export const LayOut1Config = {
+  title: "Layout1",
   mode: "container",
   containerWidth: 1570,
   navbar: {
     display: true,
-    style: "style-1",
+    style: "normal",
     folded: true,
     position: "left",
     open: true,
@@ -24,31 +25,34 @@ export const DefaultLayoutConfig = {
   },
 };
 
-export type DefaultLayoutConfigType = typeof DefaultLayoutConfig;
+export type Layout1ConfigType = typeof LayOut1Config;
 
-export const MobileLayOutConfig = {
-  mode: "fullwidth",
-  containerWidth: "100%",
+export const Layout2Config = {
+  title: "Layout2",
+  mode: "container",
+  containerWidth: 1120,
   navbar: {
     display: true,
-    style: "static",
-    position: "top",
-    folded: false,
-    open: false,
+    style: "normal",
+    position: "right",
+    folded: true,
+    open: true,
   },
   toolbar: {
-    display: false,
+    display: true,
+    style: "static",
+    position: "below",
   },
   footer: {
     display: true,
-    style: "static",
+    style: "fixed",
   },
   leftSidePanel: {
-    display: false,
+    display: true,
   },
   rightSidePanel: {
-    display: false,
+    display: true,
   },
 };
 
-export type MobileLayOutConfigType = typeof MobileLayOutConfig;
+export type Layout2ConfigType = typeof Layout2Config;

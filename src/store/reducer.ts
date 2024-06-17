@@ -1,7 +1,7 @@
 import { combineSlices } from "@reduxjs/toolkit";
 // import apiService from './apiService';
-import { userSlice } from "./slices/userSlice/userSlice";
-import { settingsSlice } from "./slices/settingSlice/settingSlice"; // eslint-disable-next-line
+import { userSlice } from "./globalSlices/userSlice";
+import { settingsSlice } from "./globalSlices/settingSlice"; // eslint-disable-next-line
 // @ts-ignore
 export interface LazyLoadedSlices {}
 

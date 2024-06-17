@@ -2,7 +2,7 @@ import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/material/styles";
 import GlobalTheme from "./configs/utils/ThemeProvider";
 import { useAppSelector } from "./store/hooks";
-import { selectCurrentTheme } from "./store/slices/settingSlice/settingSlice";
+import { selectCurrentTheme } from "./store/globalSlices/settingSlice";
 import AppProvider from "./AppProvider";
 import { LayoutProvider } from "main/layouts";
 import { Router } from "react-router-dom";

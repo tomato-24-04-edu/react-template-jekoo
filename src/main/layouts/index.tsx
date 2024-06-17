@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import _ from "lodash";
 import routes from "configs/routesConfig";
+import Layout1 from "./layout1";
 import Layout2 from "./layout2";
 import { useAppSelector } from "store/hooks";
-import { selectCurrentSettings } from "store/slices/settingSlice/settingSlice";
+import { selectCurrentSettings } from "store/globalSlices/settingSlice";
 import { SettingsConfigType } from "types/configTypes";
 import {
   matchRoutes,
@@ -24,7 +25,7 @@ export type RouteMatchType = RouteMatch & {
 export const LayoutProvider = () => {
   const selectedSettings = useAppSelector(selectCurrentSettings);
   const newSettings = useRef<SettingsConfigType>(selectedSettings);
-
+  console.log("selectedSettings : ", selectedSettings.layout);
   const location = useLocation();
   const { pathname } = location;
   const matchedRoutes = matchRoutes(routes, pathname) as
@@ -63,5 +64,7 @@ export const LayoutProvider = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return <div  className="">hi hello</div>;
+  if (selectedSettings.layout.title === "Layout1") return <Layout1 />;
+
+  if (selectedSettings.layout.title === "Layout2") return <Layout2 />;
 };

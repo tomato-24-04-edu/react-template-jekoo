@@ -7,7 +7,7 @@ function SplashScreen() {
 			<div className="logo">
 				<img
 					width="128"
-					src="assets/images/logo/logo.svg"
+					src="assets/images/src/tomato_icon_1.svg"
 					alt="logo"
 				/>
 			</div>

@@ -1,10 +1,24 @@
 import _ from "lodash";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import settingsConfig from "../../../configs/settingsConfig";
-import { User } from "../../../types/userTypes";
+import settingsConfig from "../../configs/settingsConfig";
+import { User } from "../../types/userTypes";
 import { PartialDeep } from "type-fest";
-import { RootState } from "../../store";
-import UserModel from "./userModel";
+import { RootState } from "../store";
+
+function UserModel(data: PartialDeep<User>): User {
+  data = data || {};
+
+  return _.defaults(data, {
+    uid: "",
+    role: null,
+    data: {
+      displayName: "Guest User",
+      photoURL: "",
+      email: "",
+      settings: {},
+    },
+  });
+}
 
 function updateRedirectUrl(user: User) {
   if (user?.data?.loginRedirectUrl && user?.data?.loginRedirectUrl !== "") {
