@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import SvgIcon from "configs/utils/SvgProvider";
 
 const Root = styled("div")(({ theme }) => ({
-  minHeight: 44,
   width: "100%",
   display: "flex",
   alignItems: "center",
@@ -14,9 +13,9 @@ const Root = styled("div")(({ theme }) => ({
   margin: "10px 0 0 0",
   paddingRight: 16,
   paddingLeft: 16,
-  paddingTop: 10,
+  paddingTop: 8,
   backgroundColor: theme.palette.primary.main,
-  paddingBottom: 10,
+  paddingBottom: 8,
   color: theme.palette.primary.light,
   fontWeight: 600,
   letterSpacing: "0.025em",

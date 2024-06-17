@@ -5,11 +5,11 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
     palette: {
       mode: "light",
       primary: {
-        main: "#FF4F4F",
+        main: "#06928A",
         light: "#ffffff",
       },
       secondary: {
-        main: "#D50000",
+        main: "#00A69E",
       },
       background: {
         default: "#ffffff",

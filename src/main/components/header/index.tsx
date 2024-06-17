@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from "store/hooks";
 import { memo } from "react";
 import { ThemeType } from "types/configTypes";
 import SvgIcon from "configs/utils/SvgProvider";
+import Logo from "configs/utils/Logo";
 import {
   selectCurrentLayout,
   selectCurrentTheme,
@@ -46,16 +47,26 @@ function Header(props: HeaderProps) {
       elevation={0}
     >
       <Toolbar className="min-h-20 px-3 justify-between p-0 md:min-h-16">
-        <IconButton
-          onClick={handleNavbarToggle}
-          sx={{
-            "&:hover": {
-              backgroundColor: currentTheme.palette.primary.dark,
-            },
-          }}
-        >
-          <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
-        </IconButton>
+        {currentLayout.navbar.position === "left" && (
+          <IconButton
+            onClick={handleNavbarToggle}
+            sx={{
+              "&:hover": {
+                backgroundColor: currentTheme.palette.primary.dark,
+              },
+            }}
+          >
+            <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
+          </IconButton>
+        )}
+        {!currentLayout.navbar.display && (
+          <div className="flex h-12  shrink-0 flex-row items-center justify-center ">
+            <div className="mx-4 items-center gap-4 flex flex-1">
+              <Logo />
+              <span className="text-white font-bold text-3xl">Tomato</span>
+            </div>
+          </div>
+        )}
         <IconButton
           sx={{
             "&:hover": {
@@ -66,20 +77,19 @@ function Header(props: HeaderProps) {
           <SvgIcon className="mx-0 h-8 w-8 p-0">outline:arrows-expand</SvgIcon>
         </IconButton>
 
-        {currentLayout.navbar.display &&
-          currentLayout.navbar.position === "right" && (
-            <IconButton
-              sx={{
-                "&:hover": {
-                  backgroundColor: currentTheme.palette.primary.dark,
-                },
-              }}
-              className="flex px-8"
-              onClick={handleNavbarToggle}
-            >
-              <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
-            </IconButton>
-          )}
+        {currentLayout.navbar.position === "right" && (
+          <IconButton
+            sx={{
+              "&:hover": {
+                backgroundColor: currentTheme.palette.primary.dark,
+              },
+            }}
+            className="flex px-8"
+            onClick={handleNavbarToggle}
+          >
+            <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
+          </IconButton>
+        )}
       </Toolbar>
     </AppBar>
   );

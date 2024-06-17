@@ -4,7 +4,7 @@ import { alpha, styled } from "@mui/material/styles";
 import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
 // import NavItem from "./navbarItems.tsx";
-import { useAppDispatch, useAppSelector } from "store/hooks.js";
+import { useAppSelector } from "store/hooks.js";
 import { sidebarContents } from "main/constants/sidebarContents.js";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
@@ -68,7 +68,6 @@ const NavBarContainer = styled("div")(({ theme }) => ({
 }));
 
 const LeftSideBar: React.FC = () => {
-  const dispatch = useAppDispatch();
   const config = useAppSelector(selectCurrentLayout);
   return (
     <StyledNavBar
