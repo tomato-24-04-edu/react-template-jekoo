@@ -5,11 +5,10 @@ import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
 // import NavItem from "./navbarItems.tsx";
 import { useAppDispatch, useAppSelector } from "store/hooks.js";
-import { navigationConfig } from "main/constants/sidebarContents.js";
+import { sidebarContents } from "main/constants/sidebarContents.js";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
-import { ListItem, ListItemButtonProps, ListItemText } from "@mui/material";
-
+import NavbarItems from "./navbarItems.tsx";
 const navbarWidth = 230;
 
 type StyledNavBarProps = {
@@ -17,26 +16,6 @@ type StyledNavBarProps = {
   open: boolean;
   position: string;
 };
-
-type ListItemButtonComponentProps = ListItemButtonProps & {
-  itempadding: number;
-};
-
-const ItemContainer = styled(ListItem)<ListItemButtonComponentProps>(
-  ({ theme, ...props }) => ({
-    minminHeight: 44,
-    width: "100%",
-    borderRadius: "6px",
-    margin: "28px 0 0 0",
-    paddingRight: 16,
-    paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
-    paddingTop: 10,
-    paddingBottom: 10,
-    color: alpha(theme.palette.text.primary, 0.7),
-    fontWeight: 600,
-    letterSpacing: "0.025em",
-  })
-);
 
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
@@ -98,7 +77,7 @@ const LeftSideBar: React.FC = () => {
       position={config.navbar.position}
     >
       <NavBarContainer
-        className={clsx("flex h-full py-2 flex-auto flex-col overflow-hidden")}
+        className={clsx("flex  py-2 flex-auto flex-col overflow-hidden")}
       >
         <div className="flex h-12  shrink-0 flex-row items-center justify-center ">
           <div className="mx-4 items-center gap-4 flex flex-1">
@@ -109,54 +88,21 @@ const LeftSideBar: React.FC = () => {
           {/* <NavbarToggleButton className="h-40 w-40 p-0" /> */}
         </div>
 
-        <StyledContent className="flex min-h-0 flex-1 flex-col">
+        <StyledContent className="flex min-h-0 px-2 py-2 flex-1 flex-col">
           {/* <UserNavbarHeader /> */}
 
-          <>
-            {navigationConfig.map((e, i) => {
-              return (
-                <ItemContainer
-                  component={e.component}
-                  itempadding={e.itempadding}
-                  className={clsx(
-                    "fuse-list-subheader flex items-center  py-10",
-                    !item.url ? "cursor-default" : ""
-                  )}
-                  onClick={() => onItemClick && onItemClick(item)}
-                  sx={item.sx}
-                  {...itemProps}
-                >
-                  <ListItemText
-                    className="fuse-list-subheader-text"
-                    sx={{
-                      margin: 0,
-                      "& > .MuiListItemText-primary": {
-                        fontSize: 12,
-                        color: (theme) =>
-                          theme.palette.mode === "dark"
-                            ? "secondary.light"
-                            : "secondary.main",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: ".05em",
-                        lineHeight: "20px",
-                      },
+          {sidebarContents.map((e, i) => {
+            return (
+              <NavbarItems
+                key={e.id}
+                title={e.title}
+                subtitle={e.subtitle}
+                url={e.url}
+                icon={e.icon}
+              />
+            );
+          })}
 
-                      "& > .MuiListItemText-secondary": {
-                        fontSize: 11,
-                        color: "text.disabled",
-                        letterSpacing: ".06px",
-                        fontWeight: 500,
-                        lineHeight: "1.5",
-                      },
-                    }}
-                    primary={e.title}
-                    secondary={e.subtitle}
-                  />
-                </ItemContainer>
-              );
-            })}
-          </>
           <div className="flex-0 flex items-center justify-center py-48">
             <img
               className="w-full

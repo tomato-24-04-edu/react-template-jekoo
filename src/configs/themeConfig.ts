@@ -6,6 +6,7 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
       mode: "light",
       primary: {
         main: "#FF4F4F",
+        light: "#ffffff",
       },
       secondary: {
         main: "#D50000",

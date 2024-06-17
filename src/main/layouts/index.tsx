@@ -25,7 +25,6 @@ export type RouteMatchType = RouteMatch & {
 export const LayoutProvider = () => {
   const selectedSettings = useAppSelector(selectCurrentSettings);
   const newSettings = useRef<SettingsConfigType>(selectedSettings);
-  console.log("selectedSettings : ", selectedSettings.layout);
   const location = useLocation();
   const { pathname } = location;
   const matchedRoutes = matchRoutes(routes, pathname) as
@@ -67,4 +66,6 @@ export const LayoutProvider = () => {
   if (selectedSettings.layout.title === "Layout1") return <Layout1 />;
 
   if (selectedSettings.layout.title === "Layout2") return <Layout2 />;
+
+  return null;
 };
