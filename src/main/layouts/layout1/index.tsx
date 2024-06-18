@@ -37,18 +37,14 @@ const Layout1 = (props: Layout1Props) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (hidden) {
-      if (config.navbar.open) {
-        dispatch(
-          changeLayout({
-            navbar: {
-              ...config.navbar,
-              open: !config.navbar.open,
-            },
-          })
-        );
-      }
-    }
+    dispatch(
+      changeLayout({
+        navbar: {
+          ...config.navbar,
+          open: !config.navbar.open,
+        },
+      })
+    );
   }, [hidden]);
 
   return (
@@ -57,9 +53,7 @@ const Layout1 = (props: Layout1Props) => {
         {config.navbar.display && config.navbar.position === "left" && (
           <NavBar />
         )}
-        <main
-          className="relative z-10 flex min-h-full min-w-0 flex-auto flex-col"
-        >
+        <main className="relative z-10 flex min-h-full min-w-0 flex-auto flex-col">
           {config.toolbar.display && (
             <Header
               className={config.toolbar.style === "fixed" ? "sticky top-0" : ""}

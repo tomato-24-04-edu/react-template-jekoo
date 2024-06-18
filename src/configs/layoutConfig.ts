@@ -7,7 +7,7 @@ export const LayOut1Config = {
     style: "normal",
     folded: true,
     position: "left",
-    open: true,
+    open: false,
   },
   toolbar: {
     display: true,

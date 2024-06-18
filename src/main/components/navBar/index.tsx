@@ -1,6 +1,5 @@
-import React from "react";
-import List from "@mui/material/List";
-import { alpha, styled } from "@mui/material/styles";
+import React, { memo } from "react";
+import { styled } from "@mui/material/styles";
 import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
 import { useAppSelector } from "configs/hooks";
@@ -20,13 +19,13 @@ type StyledNavBarProps = {
 
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.background.default,
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
     ...(!open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
@@ -61,9 +60,9 @@ const StyledContent = styled("div")(() => ({
 
 const NavBarContainer = styled("div")(({ theme }) => ({
   color: theme.palette.text.primary,
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100%',
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
   "& ::-webkit-scrollbar": {
     display: "none",
   },
@@ -126,4 +125,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default memo(NavBar);

@@ -13,7 +13,7 @@ type SvgIconProps = BoxProps & {
 };
 
 const Root = styled(Box)<SvgIconProps>(
-  ({ theme, size = 24, color = "inherit" }) => ({
+  ({ theme, size = 24, color }) => ({
     width: size,
     height: size,
     minWidth: size,
@@ -21,16 +21,16 @@ const Root = styled(Box)<SvgIconProps>(
     fontSize: size,
     lineHeight: size,
     color: {
-      primary: theme.palette.primary.main,
+      primary: theme.palette.primary.light,
       secondary: theme.palette.secondary.main,
-      background: theme.palette.primary.light,
+      background: theme.palette.background.default,
       inherit: "currentColor",
     }[color] as string,
   })
 );
 
 const SvgIcon = forwardRef<SVGSVGElement, SvgIconProps>((props, ref) => {
-  const { children, className = "", color = "background" } = props;
+  const { children, className = "", color = "primary" } = props;
 
   if (typeof children !== "string") {
     return null;
