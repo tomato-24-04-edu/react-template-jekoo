@@ -1,37 +1,34 @@
 import { SnackbarProvider } from "notistack";
-
-import { createContext } from "react";
-import { RouteObject } from "react-router/dist/lib/context";
-import { StyledEngineProvider } from '@mui/material/styles';
-import { Provider } from "react-redux";
-
-
-export type AppContextType = {
-  routes: RouteObject[];
-};
-
-const AppContext = createContext<AppContextType>({ routes: [] });
+import { StyledEngineProvider } from "@mui/material/styles";
+import GlobalTheme from "./configs/utils/ThemeProvider";
+import { useAppSelector } from "./store/hooks";
+import { selectCurrentTheme } from "./store/globalSlices/settingSlice";
+import AppProvider from "./AppProvider";
+import { LayoutProvider } from "main/layouts";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
+  const defaultTheme = useAppSelector(selectCurrentTheme);
   return (
-    <>
-      <SnackbarProvider
-        maxSnack={5}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
-        }}
-        classes={{
-          containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
-        }}
-      >
-        {/* <Provider store={store}> */}
-        <StyledEngineProvider injectFirst></StyledEngineProvider>
-        {/* </Provider> */}
-        {/* <FuseLayout layouts={themeLayouts} /> */}
-      </SnackbarProvider>
-    </>
+    <StyledEngineProvider injectFirst>
+      <GlobalTheme theme={defaultTheme}>
+        <SnackbarProvider
+          maxSnack={5}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          classes={{
+            containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
+          }}
+        >
+          <Router>
+            <LayoutProvider />
+          </Router>
+        </SnackbarProvider>
+      </GlobalTheme>
+    </StyledEngineProvider>
   );
 }
 
-export default App;
+export default AppProvider(App);
