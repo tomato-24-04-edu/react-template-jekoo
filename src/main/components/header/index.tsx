@@ -62,7 +62,7 @@ function Header(props: HeaderProps) {
         )}
         {!currentLayout.navbar.open && (
           <div
-            onClick={() => navigate("main")}
+            onClick={() => navigate("manage-employees")}
             className="flex h-12 mr-10 cursor-pointer shrink-0 flex-row items-center justify-center"
           >
             <div className="mx-4 items-center gap-4 flex flex-1">

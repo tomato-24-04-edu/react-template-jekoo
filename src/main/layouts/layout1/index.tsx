@@ -7,7 +7,7 @@ import { AppContext } from "../../../AppProvider";
 import { useRoutes } from "react-router-dom";
 import Header from "main/components/header";
 import CustomSuspense from "configs/utils/CustomSuspense";
-import LeftSideBar from "main/components/leftSidebar";
+import NavBar from "main/components/navBar";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
@@ -36,7 +36,7 @@ const Layout1 = (props: Layout1Props) => {
     <Root className="flex w-full" config={config}>
       <div className="flex min-w-0 flex-auto">
         {config.navbar.display && config.navbar.position === "left" && (
-          <LeftSideBar />
+          <NavBar />
         )}
         <main
           id="fuse-main"
@@ -52,7 +52,7 @@ const Layout1 = (props: Layout1Props) => {
           </div>
         </main>
         {config.navbar.display && config.navbar.position === "right" && (
-          <LeftSideBar />
+          <NavBar />
         )}
       </div>
     </Root>

@@ -1,8 +1,8 @@
 // import { FuseRouteConfigType } from "@fuse/utils/FuseUtils";
 import { RouteConfigType } from "types/configTypes";
-import MainPage from ".";
+import ManageEmployees from ".";
 
-const MainConfig: RouteConfigType = {
+const ManageEmployeesConfig: RouteConfigType = {
   settings: {
     layout: {
       config: {
@@ -27,10 +27,10 @@ const MainConfig: RouteConfigType = {
   auth: null,
   routes: [
     {
-      path: "main",
-      element: <MainPage />,
+      path: "manage-employees",
+      element: <ManageEmployees />,
     },
   ],
 };
 
-export default MainConfig;
+export default ManageEmployeesConfig;

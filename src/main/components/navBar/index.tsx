@@ -4,12 +4,13 @@ import { alpha, styled } from "@mui/material/styles";
 import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
 // import NavItem from "./navbarItems.tsx";
-import { useAppSelector } from "store/hooks.js";
-import { sidebarContents } from "main/constants/sidebarContents.js";
+import { useAppSelector } from "store/hooks";
+import { navBarContents } from "main/constants/navBarContents";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
-import NavbarItems from "./navbarItems.tsx";
+import NavBarItems from "main/components/navBar/navBarItems";
 import { useNavigate } from "react-router-dom";
+
 const navbarWidth = 230;
 
 type StyledNavBarProps = {
@@ -68,8 +69,7 @@ const NavBarContainer = styled("div")(({ theme }) => ({
   },
 }));
 
-const LeftSideBar: React.FC = () => {
-
+const NavBar: React.FC = () => {
   const navigate = useNavigate();
   const config = useAppSelector(selectCurrentLayout);
 
@@ -82,21 +82,23 @@ const LeftSideBar: React.FC = () => {
       <NavBarContainer
         className={clsx("flex  py-2 flex-auto flex-col overflow-hidden")}
       >
-        <div onClick={()=>navigate("main")} className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center ">
+        <div
+          onClick={() => navigate("manage-employees")}
+          className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center "
+        >
           <div className="mx-4 items-center gap-4 flex flex-1">
             <Logo />
             <span className="text-white font-bold text-3xl">Tomato</span>
           </div>
 
-          {/* <NavbarToggleButton className="h-40 w-40 p-0" /> */}
         </div>
 
         <StyledContent className="flex min-h-0 px-2 py-2 flex-1 flex-col">
           {/* <UserNavbarHeader /> */}
 
-          {sidebarContents.map((e, i) => {
+          {navBarContents.map((e, i) => {
             return (
-              <NavbarItems
+              <NavBarItems
                 key={e.id}
                 title={e.title}
                 subtitle={e.subtitle}
@@ -120,4 +122,4 @@ const LeftSideBar: React.FC = () => {
   );
 };
 
-export default LeftSideBar;
+export default NavBar;

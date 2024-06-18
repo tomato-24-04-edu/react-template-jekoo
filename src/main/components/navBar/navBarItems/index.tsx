@@ -40,7 +40,7 @@ type NavbarItemsProps = {
   icon: string;
 };
 
-const NavbarItems: React.FC<NavbarItemsProps> = ({
+const NavBarItems: React.FC<NavbarItemsProps> = ({
   title,
   subtitle,
   url,
@@ -79,4 +79,4 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({
   );
 };
 
-export default NavbarItems;
+export default NavBarItems;

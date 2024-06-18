@@ -1,6 +1,5 @@
-import { NavItemType } from "types/navbarTypes";
-
-export const sidebarContents: NavItemType[] = [
+import { NavItemType } from "types/navBarTypes";
+export const navBarContents: NavItemType[] = [
   {
     id: "manage-employee",
     title: "社員管理",
@@ -8,7 +7,7 @@ export const sidebarContents: NavItemType[] = [
     type: "item",
     icon: "outline:home",
     translate: "Manage Employee",
-    url: "main",
+    url: "manage-employees",
     children: [],
   },
   {

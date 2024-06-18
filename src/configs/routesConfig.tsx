@@ -8,8 +8,8 @@ import {
   RouteItemType,
   RoutesType,
 } from "../types/configTypes";
-import MainConfig from "main/pages/main/mainConfig";
-import TempConfig from "main/pages/temp/tempConfig";
+import ManageEmployeesConfig from "main/apps/manageEmployees/manageEmployeesConfig";
+import TempConfig from "main/apps/temp/tempConfig";
 
 const setRoutes = (
   config: RouteConfigType,
@@ -41,13 +41,13 @@ const generateRoutesFromConfigs = (
   return allRoutes;
 };
 
-const routeConfigs: RouteConfigsType = [MainConfig, TempConfig];
+const routeConfigs: RouteConfigsType = [ManageEmployeesConfig, TempConfig];
 
 const routes: RoutesType = [
   ...generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
   {
     path: "/",
-    element: <Navigate to="/main" />,
+    element: <Navigate to="/manage-employees" />,
     auth: settingsConfig.defaultAuth,
   },
   // {
