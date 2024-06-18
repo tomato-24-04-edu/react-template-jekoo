@@ -2,3 +2,6 @@
 3. redirecturl을 굳이 redux로 관리해야할 지 조사.
 4. mock-api 만들기
 5. 404페이지 만들기
+
+150% 이상 화면에서 navbar 사라지게 해놨는데 -> 햄버거 버튼 눌러도 안나옴
+hidden에 setting.layout의 open을 참조 시켜야함

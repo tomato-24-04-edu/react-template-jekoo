@@ -1,8 +1,12 @@
-import { lazy, memo, ReactNode, Suspense, useContext } from "react";
+import { useEffect, memo, ReactNode, useContext } from "react";
 import { styled } from "@mui/material/styles";
 import { Layout1ConfigType } from "configs/layoutConfig";
-import { selectCurrentLayout } from "store/globalSlices/settingSlice";
-import { useAppSelector } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "configs/hooks";
+import {
+  selectCurrentLayout,
+  selectCurrentTheme,
+  changeLayout,
+} from "store/globalSlices/settingSlice";
 import { AppContext } from "../../../AppProvider";
 import { useRoutes } from "react-router-dom";
 import Header from "main/components/header";
@@ -30,7 +34,23 @@ const Layout1 = (props: Layout1Props) => {
   const config = useAppSelector(selectCurrentLayout) as Layout1ConfigType;
   const { routes } = useContext(AppContext);
   const theme = useTheme();
-  const hidden = useMediaQuery(theme.breakpoints.down("lg"));
+  const hidden = useMediaQuery(theme.breakpoints.down("md"));
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (hidden) {
+      if (config.navbar.open) {
+        dispatch(
+          changeLayout({
+            navbar: {
+              ...config.navbar,
+              open: !config.navbar.open,
+            },
+          })
+        );
+      }
+    }
+  }, [hidden]);
 
   return (
     <Root className="flex w-full" config={config}>
@@ -42,7 +62,7 @@ const Layout1 = (props: Layout1Props) => {
           id="fuse-main"
           className="relative z-10 flex min-h-full min-w-0 flex-auto flex-col"
         >
-          {config.toolbar.display && !hidden && (
+          {config.toolbar.display && (
             <Header
               className={config.toolbar.style === "fixed" ? "sticky top-0" : ""}
             />
@@ -59,4 +79,4 @@ const Layout1 = (props: Layout1Props) => {
   );
 };
 
-export default Layout1;
+export default memo(Layout1);

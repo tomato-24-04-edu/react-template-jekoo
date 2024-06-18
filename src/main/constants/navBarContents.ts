@@ -1,4 +1,5 @@
 import { NavItemType } from "types/navBarTypes";
+
 export const navBarContents: NavItemType[] = [
   {
     id: "manage-employee",

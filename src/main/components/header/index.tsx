@@ -2,7 +2,7 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import clsx from "clsx";
-import { useAppSelector, useAppDispatch } from "store/hooks";
+import { useAppSelector, useAppDispatch } from "configs/hooks";
 import { memo } from "react";
 import { ThemeType } from "types/configTypes";
 import SvgIcon from "configs/utils/SvgProvider";
@@ -65,7 +65,7 @@ function Header(props: HeaderProps) {
             onClick={() => navigate("manage-employees")}
             className="flex h-12 mr-10 cursor-pointer shrink-0 flex-row items-center justify-center"
           >
-            <div className="mx-4 items-center gap-4 flex flex-1">
+            <div className="mx-4 items-center gap-2 flex flex-1">
               <Logo />
               <span className="text-white font-bold text-3xl">Tomato</span>
             </div>

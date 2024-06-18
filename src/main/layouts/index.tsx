@@ -3,7 +3,7 @@ import _ from "lodash";
 import routes from "configs/routesConfig";
 import Layout1 from "./layout1";
 import Layout2 from "./layout2";
-import { useAppSelector } from "store/hooks";
+import { useAppSelector } from "configs/hooks";
 import { selectCurrentSettings } from "store/globalSlices/settingSlice";
 import { SettingsConfigType } from "types/configTypes";
 import {
@@ -67,5 +67,5 @@ export const LayoutProvider = () => {
 
   if (selectedSettings.layout.title === "Layout2") return <Layout2 />;
 
-  return null;
+  return <Layout1 />;
 };
