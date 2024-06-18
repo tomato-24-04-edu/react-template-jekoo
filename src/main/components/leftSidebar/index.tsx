@@ -9,6 +9,7 @@ import { sidebarContents } from "main/constants/sidebarContents.js";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
 import NavbarItems from "./navbarItems.tsx";
+import { useNavigate } from "react-router-dom";
 const navbarWidth = 230;
 
 type StyledNavBarProps = {
@@ -68,7 +69,10 @@ const NavBarContainer = styled("div")(({ theme }) => ({
 }));
 
 const LeftSideBar: React.FC = () => {
+
+  const navigate = useNavigate();
   const config = useAppSelector(selectCurrentLayout);
+
   return (
     <StyledNavBar
       className="sticky top-0 z-20 h-screen flex-auto shrink-0 flex-col overflow-hidden shadow"
@@ -78,7 +82,7 @@ const LeftSideBar: React.FC = () => {
       <NavBarContainer
         className={clsx("flex  py-2 flex-auto flex-col overflow-hidden")}
       >
-        <div className="flex h-12  shrink-0 flex-row items-center justify-center ">
+        <div onClick={()=>navigate("main")} className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center ">
           <div className="mx-4 items-center gap-4 flex flex-1">
             <Logo />
             <span className="text-white font-bold text-3xl">Tomato</span>

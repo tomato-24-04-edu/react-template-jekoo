@@ -12,6 +12,7 @@ import {
   selectCurrentTheme,
   changeLayout,
 } from "store/globalSlices/settingSlice";
+import { useNavigate } from "react-router-dom";
 
 type HeaderProps = {
   className?: string;
@@ -19,7 +20,7 @@ type HeaderProps = {
 
 function Header(props: HeaderProps) {
   const { className } = props;
-
+  const navigate = useNavigate();
   const currentTheme = useAppSelector(selectCurrentTheme) as ThemeType;
   const currentLayout = useAppSelector(selectCurrentLayout);
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ function Header(props: HeaderProps) {
       changeLayout({
         navbar: {
           ...currentLayout.navbar,
-          display: !currentLayout.navbar.display,
+          open: !currentLayout.navbar.open,
         },
       })
     );
@@ -59,8 +60,11 @@ function Header(props: HeaderProps) {
             <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
           </IconButton>
         )}
-        {!currentLayout.navbar.display && (
-          <div className="flex h-12  shrink-0 flex-row items-center justify-center ">
+        {!currentLayout.navbar.open && (
+          <div
+            onClick={() => navigate("main")}
+            className="flex h-12 mr-10 cursor-pointer shrink-0 flex-row items-center justify-center"
+          >
             <div className="mx-4 items-center gap-4 flex flex-1">
               <Logo />
               <span className="text-white font-bold text-3xl">Tomato</span>

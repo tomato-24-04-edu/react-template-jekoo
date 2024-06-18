@@ -1,10 +1,14 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import { ListItemText } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SvgIcon from "configs/utils/SvgProvider";
 
-const Root = styled("div")(({ theme }) => ({
+interface RootProps {
+  active: boolean;
+}
+
+const Root = styled("div")<RootProps>(({ theme, active }) => ({
   width: "100%",
   display: "flex",
   alignItems: "center",
@@ -14,12 +18,18 @@ const Root = styled("div")(({ theme }) => ({
   paddingRight: 16,
   paddingLeft: 16,
   paddingTop: 8,
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: active
+    ? theme.palette.primary.dark
+    : theme.palette.primary.main,
   paddingBottom: 8,
   color: theme.palette.primary.light,
   fontWeight: 600,
   letterSpacing: "0.025em",
   cursor: "pointer",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.dark,
+    color: "#c9c9c9",
+  },
 }));
 
 type NavbarItemsProps = {
@@ -37,8 +47,11 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({
   icon,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isActive = location.pathname === "/" + url;
+
   return (
-    <Root onClick={() => navigate(url)}>
+    <Root onClick={() => navigate(url)} active={isActive}>
       <SvgIcon>{icon}</SvgIcon>
       <ListItemText
         sx={{
