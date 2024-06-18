@@ -1,8 +1,8 @@
 import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/material/styles";
-import GlobalTheme from "./configs/utils/ThemeProvider";
-import { useAppSelector } from "./store/hooks";
-import { selectCurrentTheme } from "./store/globalSlices/settingSlice";
+import GlobalTheme from "configs/utils/ThemeProvider";
+import { useAppSelector } from "configs/hooks";
+import { selectCurrentTheme } from "store/globalSlices/settingSlice";
 import AppProvider from "./AppProvider";
 import { LayoutProvider } from "main/layouts";
 import { BrowserRouter as Router } from "react-router-dom";

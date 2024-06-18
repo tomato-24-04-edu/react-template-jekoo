@@ -1,4 +1,3 @@
-// import { FuseRouteConfigType } from "@fuse/utils/FuseUtils";
 import { RouteConfigType } from "types/configTypes";
 import TempPage from ".";
 

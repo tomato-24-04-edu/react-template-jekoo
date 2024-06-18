@@ -1,15 +1,15 @@
 import { RouteConfigType } from "types/configTypes";
-import ManageEmployees from ".";
+import Document from ".";
 
-const ManageEmployeesConfig: RouteConfigType = {
+const DocumentConfig: RouteConfigType = {
   settings: {
     layout: {
       config: {
         navbar: {
-          display: false,
+          display: true,
         },
         toolbar: {
-          display: false,
+          display: true,
         },
         footer: {
           display: false,
@@ -26,10 +26,10 @@ const ManageEmployeesConfig: RouteConfigType = {
   auth: null,
   routes: [
     {
-      path: "manage-employees",
-      element: <ManageEmployees />,
+      path: "document",
+      element: <Document />,
     },
   ],
 };
 
-export default ManageEmployeesConfig;
+export default DocumentConfig;

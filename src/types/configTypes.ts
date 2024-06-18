@@ -22,7 +22,7 @@ export type RouteConfigType = {
 
 export type RouteConfigsType = RouteConfigType[];
 
-//========================================================
+//Theme types ========================================================
 
 export type ThemeType = {
   palette: PartialDeep<Palette>;

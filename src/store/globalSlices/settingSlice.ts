@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
 import { RootState } from "store/store";
+import { ThemeType } from "types/configTypes";
 import settingsConfig from "configs/settingsConfig";
 
 const initialState = {

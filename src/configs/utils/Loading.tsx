@@ -39,7 +39,7 @@ function Loading(props: LoadingProps) {
 				id="spinner"
 				sx={{
 					'& > div': {
-						backgroundColor: 'palette.secondary.main'
+						backgroundColor: 'palette.background.default'
 					}
 				}}
 			>

@@ -1,10 +1,8 @@
-import React from "react";
-import List from "@mui/material/List";
-import { alpha, styled } from "@mui/material/styles";
+import React, { memo } from "react";
+import { styled } from "@mui/material/styles";
 import clsx from "clsx";
 import { Theme } from "@mui/system/createTheme";
-// import NavItem from "./navbarItems.tsx";
-import { useAppSelector } from "store/hooks";
+import { useAppSelector } from "configs/hooks";
 import { navBarContents } from "main/constants/navBarContents";
 import { selectCurrentLayout } from "store/globalSlices/settingSlice.js";
 import Logo from "configs/utils/Logo";
@@ -22,10 +20,12 @@ type StyledNavBarProps = {
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
     backgroundColor: theme.palette.secondary.main,
-
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
     ...(!open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
@@ -55,9 +55,14 @@ const StyledContent = styled("div")(() => ({
   backgroundRepeat: "no-repeat",
   backgroundSize: "100% 40px, 100% 10px",
   backgroundAttachment: "local, scroll",
+  flexGrow: 1,
 }));
+
 const NavBarContainer = styled("div")(({ theme }) => ({
   color: theme.palette.text.primary,
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
   "& ::-webkit-scrollbar": {
     display: "none",
   },
@@ -80,17 +85,16 @@ const NavBar: React.FC = () => {
       position={config.navbar.position}
     >
       <NavBarContainer
-        className={clsx("flex  py-2 flex-auto flex-col overflow-hidden")}
+        className={clsx("flex pb-2 flex-auto flex-col overflow-hidden")}
       >
         <div
           onClick={() => navigate("manage-employees")}
-          className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center "
+          className="flex cursor-pointer py-2 shrink-0 flex-row items-center justify-center"
         >
           <div className="mx-4 items-center gap-4 flex flex-1">
             <Logo />
             <span className="text-white font-bold text-3xl">Tomato</span>
           </div>
-
         </div>
 
         <StyledContent className="flex min-h-0 px-2 py-2 flex-1 flex-col">
@@ -108,10 +112,9 @@ const NavBar: React.FC = () => {
             );
           })}
 
-          <div className="flex-0 flex items-center justify-center py-48">
+          <div className="flex-0 flex mt-5 items-center justify-center py-2">
             <img
-              className="w-full
-              max-w-48"
+              className="w-full max-w-48"
               src="assets/images/svg/tomato_icon_2.svg"
               alt="footer logo"
             />
@@ -122,4 +125,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default memo(NavBar);
