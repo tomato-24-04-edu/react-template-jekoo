@@ -4,6 +4,9 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
   default: {
     palette: {
       mode: "light",
+      text: {
+        primary: "#000000",
+      },
       primary: {
         main: "#06928A",
         light: "#ffffff",
@@ -13,23 +16,27 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
         main: "#00A69E",
       },
       background: {
-        default: "#00A69E",
+        default: "#ffffff",
       },
     },
   },
   dark: {
     palette: {
       mode: "dark",
+      text: {
+        primary: "#ffffff",
+      },
       primary: {
-        main: "#535353",
+        main: "#2A2A2A",
         light: "#ffffff",
         dark: "#acacac",
       },
       secondary: {
-        main: "#00A69E",
+        main: "#000000",
+        dark: "#acacac",
       },
       background: {
-        default: "#000000",
+        default: "#727272",
       },
     },
   },

@@ -19,7 +19,7 @@ type StyledNavBarProps = {
 
 const StyledNavBar = styled("div")<StyledNavBarProps>(
   ({ theme, open, position }) => ({
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.secondary.main,
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
@@ -112,7 +112,7 @@ const NavBar: React.FC = () => {
             );
           })}
 
-          <div className="flex-0 flex items-center justify-center py-2">
+          <div className="flex-0 flex mt-5 items-center justify-center py-2">
             <img
               className="w-full max-w-48"
               src="assets/images/svg/tomato_icon_2.svg"

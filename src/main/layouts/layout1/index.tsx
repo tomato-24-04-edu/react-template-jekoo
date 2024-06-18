@@ -15,13 +15,11 @@ import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 const Root = styled("div")(({ config }: { config: Layout1ConfigType }) => ({
-  ...(config.mode === "container" && {
-    "& .container": {
-      maxWidth: `${config.containerWidth}px`,
-      width: "100%",
-      margin: "0 auto",
-    },
-  }),
+  "& .container": {
+    maxWidth: `${config.containerWidth}px`,
+    width: "100%",
+    margin: "0 auto",
+  },
 }));
 
 type Layout1Props = {

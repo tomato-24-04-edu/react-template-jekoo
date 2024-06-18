@@ -54,7 +54,7 @@ const routes: RoutesType = [
   ...generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
   {
     path: "/",
-    element: <Navigate to="/manage-employees" />,
+    element: <Navigate to="/document" />,
     auth: settingsConfig.defaultAuth,
   },
   {

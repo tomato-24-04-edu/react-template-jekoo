@@ -12,11 +12,11 @@ const inputGlobalStyles = (
   <GlobalStyles
     styles={(theme) => ({
       html: {
-        backgroundColor: `${theme.palette.primary.light}!important`,
+        backgroundColor: `${theme.palette.background.default}!important`,
         color: `${theme.palette.text.primary}!important`,
       },
       body: {
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
       },
 
