@@ -1,6 +1,6 @@
 # Tomato React Education Template
 
-![Project Image](public/assets/readme/readme.jpg)
+<!-- ![Project Image](public/assets/readme/readme.jpg) -->
 
 ## 설명 - 임시
 Fuse-React를 참고, Deprecated된 부분, 실용성이 없는 부분 제외, React 교육 및 웹 애플리케이션 제작에 재사용 가능한 템플릿을 초기 기본 프로젝트에서 시작하여 작성.
