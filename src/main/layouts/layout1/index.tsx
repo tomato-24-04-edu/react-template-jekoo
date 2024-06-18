@@ -4,7 +4,6 @@ import { Layout1ConfigType } from "configs/layoutConfig";
 import { useAppDispatch, useAppSelector } from "configs/hooks";
 import {
   selectCurrentLayout,
-  selectCurrentTheme,
   changeLayout,
 } from "store/globalSlices/settingSlice";
 import { AppContext } from "../../../AppProvider";
@@ -59,7 +58,6 @@ const Layout1 = (props: Layout1Props) => {
           <NavBar />
         )}
         <main
-          id="fuse-main"
           className="relative z-10 flex min-h-full min-w-0 flex-auto flex-col"
         >
           {config.toolbar.display && (

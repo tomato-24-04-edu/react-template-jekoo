@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Box from "@mui/material/Box";
+
 import Button from "@mui/material/Button";
 
 function Error404Page() {

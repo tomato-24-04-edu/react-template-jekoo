@@ -11,6 +11,7 @@ import {
 import ManageEmployeesConfig from "main/apps/manageEmployees/manageEmployeesConfig";
 import TempConfig from "main/apps/temp/tempConfig";
 import Error404Page from "./utils/Error404Page";
+import DocumentConfig from "main/apps/document/documentConfig";
 
 const setRoutes = (
   config: RouteConfigType,
@@ -43,7 +44,11 @@ const generateRoutesFromConfigs = (
   return allRoutes;
 };
 
-const routeConfigs: RouteConfigsType = [ManageEmployeesConfig, TempConfig];
+const routeConfigs: RouteConfigsType = [
+  ManageEmployeesConfig,
+  TempConfig,
+  DocumentConfig,
+];
 
 const routes: RoutesType = [
   ...generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
