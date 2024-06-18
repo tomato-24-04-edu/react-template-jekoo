@@ -2,6 +2,10 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Switch from "@mui/material/Switch";
+
+import Tooltip from '@mui/material/Tooltip';
+import { useEffect, useLayoutEffect, useState } from 'react';
+
 import clsx from "clsx";
 import { useAppSelector, useAppDispatch } from "configs/hooks";
 import { memo } from "react";
@@ -38,6 +42,7 @@ function Header(props: HeaderProps) {
       })
     );
   };
+
   const handleThemeChange = () => {
     if (currentTheme.palette.mode === "dark") {
       dispatch(changeTheme(themesConfig.default));
@@ -45,6 +50,10 @@ function Header(props: HeaderProps) {
       dispatch(changeTheme(themesConfig.dark));
     }
   };
+
+
+
+
 
   return (
     <AppBar

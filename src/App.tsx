@@ -22,7 +22,7 @@ function App() {
             containerRoot: "bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99",
           }}
         >
-          <Router>
+          <Router >
             <LayoutProvider />
           </Router>
         </SnackbarProvider>
