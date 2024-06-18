@@ -65,6 +65,7 @@ const routes: RoutesType = [
     path: "*",
     element: <Navigate to="404" />,
   },
+
 ];
 
 export default routes;
