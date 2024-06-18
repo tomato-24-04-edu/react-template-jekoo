@@ -50,18 +50,7 @@ const routes: RoutesType = [
     element: <Navigate to="/manage-employees" />,
     auth: settingsConfig.defaultAuth,
   },
-  // {
-  // 	path: 'loading',
-  // 	element: <Loading />
-  // },
-  // {
-  // 	path: '404',
-  // 	element: <Error404Page />
-  // },
-  // {
-  // 	path: '*',
-  // 	element: <Navigate to="404" />
-  // }
+
 ];
 
 export default routes;

@@ -1,6 +1,8 @@
 # Tomato React Education Template
 
-## 설명
+![Project Image](public/assets/readme/readme.jpg)
+
+## 설명 - 임시
 Fuse-React를 참고, Deprecated된 부분, 실용성이 없는 부분 제외, React 교육 및 웹 애플리케이션 제작에 재사용 가능한 템플릿을 초기 기본 프로젝트에서 시작하여 작성.
 
 ## 만들게 된 계기
@@ -17,13 +19,14 @@ Fuse-React를 참고, Deprecated된 부분, 실용성이 없는 부분 제외, R
 
 2. **실용성이 떨어지는 부분**
    - 정적 Data들을 redux에 보관하는 부분 (NavBar 아이템의 이름)
-   - CacheProvider : 언어 방향(rtl, ltr)에서 유용 - 언어 방향이 실용성 떨어짐.
+   - CacheProvider : 언어 방향(rtl, ltr)에서만 유용 - 언어 방향 기능이 실용성 떨어짐.
 
 3. **지나친 설정**
-   - custom tailwind 설정이 1500줄, 디폴트 스타일에서 크게 벗어나지도 않음 (styled-components를 쓰는게 나음)
+   - custom tailwind 설정이 1500줄, default tailwind에서 크게 벗어나지도 않음
+   - 특정 컴포넌트에서만 사용하는 함수를 외부 클래스에 정의 -> useMemo로 대체
 
 4. **사용하지 않는 코드**
-   - withReducer 등 혼란을 가져올 수 있음.
+   - withReducer 등 - 혼란을 가져올 수 있음.
 
 ## 구조
 1. **Utils**
