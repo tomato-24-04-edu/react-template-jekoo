@@ -2,10 +2,7 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Switch from "@mui/material/Switch";
-
-import Tooltip from '@mui/material/Tooltip';
-import { useEffect, useLayoutEffect, useState } from 'react';
-
+import HeaderFullScreenToggle from "configs/utils/FullScreenToggle";
 import clsx from "clsx";
 import { useAppSelector, useAppDispatch } from "configs/hooks";
 import { memo } from "react";
@@ -51,10 +48,6 @@ function Header(props: HeaderProps) {
     }
   };
 
-
-
-
-
   return (
     <AppBar
       id="header"
@@ -97,7 +90,9 @@ function Header(props: HeaderProps) {
             name="themeToggle"
             color="default"
           />
-          <IconButton
+
+          <HeaderFullScreenToggle />
+          {/* <IconButton
             onClick={handleThemeChange}
             sx={{
               "&:hover": {
@@ -106,7 +101,7 @@ function Header(props: HeaderProps) {
             }}
           >
             <SvgIcon className="mx-0 h-8 w-8 p-0">outline:arrows-expand</SvgIcon>
-          </IconButton>
+          </IconButton> */}
         </div>
         {currentLayout.navbar.position === "right" && (
           <IconButton
