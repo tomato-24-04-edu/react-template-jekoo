@@ -8,17 +8,8 @@ const DocumentConfig: RouteConfigType = {
         navbar: {
           display: true,
         },
-        toolbar: {
+        header: {
           display: true,
-        },
-        footer: {
-          display: false,
-        },
-        leftSidePanel: {
-          display: false,
-        },
-        rightSidePanel: {
-          display: false,
         },
       },
     },

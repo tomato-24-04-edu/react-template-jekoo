@@ -2,7 +2,7 @@
 import React from "react";
 import { Reducer, Slice } from "@reduxjs/toolkit";
 import getReducersFromSlices from "./getReducer";
-import { rootReducer } from "./reducer";
+import { rootReducer } from "../reducer";
 
 export type SlicesType = Slice[];
 

@@ -1,0 +1,22 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Fuse Mock API",
+    "version": "1.0.0",
+    "contact": {
+      "url": "http://fusetheme.com/",
+      "email": "themes@withinpixels.com",
+      "name": "Fuse Theme"
+    },
+    "description": "Fuse Theme Family Mock API Open API Definitions",
+    "license": {
+      "name": "private",
+      "url": "https://themeforest.net/licenses/terms/regular"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ]
+}

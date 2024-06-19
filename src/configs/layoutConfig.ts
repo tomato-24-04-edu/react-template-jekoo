@@ -4,55 +4,37 @@ export const LayOut1Config = {
   containerWidth: 1570,
   navbar: {
     display: true,
-    style: "normal",
-    folded: true,
     position: "left",
     open: false,
   },
-  toolbar: {
-    display: true,
-    style: "fixed",
-  },
-  footer: {
-    display: true,
-    style: "fixed",
-  },
-  leftSidePanel: {
+  header: {
     display: true,
   },
-  rightSidePanel: {
+  sidepanel: {
     display: true,
+    position: "right",
+    open: false,
   },
 };
 
-export type Layout1ConfigType = typeof LayOut1Config;
+export type LayoutConfigType = typeof LayOut1Config;
 
 export const Layout2Config = {
   title: "Layout2",
   mode: "container",
-  containerWidth: 1120,
+  containerWidth: 1570,
   navbar: {
     display: true,
-    style: "normal",
     position: "right",
-    folded: true,
     open: true,
   },
-  toolbar: {
-    display: true,
-    style: "static",
-    position: "below",
-  },
-  footer: {
-    display: true,
-    style: "fixed",
-  },
-  leftSidePanel: {
+  header: {
     display: true,
   },
-  rightSidePanel: {
+  sidepanel: {
     display: true,
+    position: "left",
+    open: false,
   },
 };
 
-export type Layout2ConfigType = typeof Layout2Config;

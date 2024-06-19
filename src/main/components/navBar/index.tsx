@@ -92,7 +92,7 @@ const NavBar: React.FC = () => {
           className="flex cursor-pointer py-2 shrink-0 flex-row items-center justify-center"
         >
           <div className="mx-4 items-center gap-4 flex flex-1">
-            <Logo />
+            <Logo height={50} width={50} />
             <span className="text-white font-bold text-3xl">Tomato</span>
           </div>
         </div>

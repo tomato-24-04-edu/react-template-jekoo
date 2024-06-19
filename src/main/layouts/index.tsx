@@ -63,9 +63,5 @@ export const LayoutProvider = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  if (selectedSettings.layout.title === "Layout1") return <Layout1 />;
-
-  if (selectedSettings.layout.title === "Layout2") return <Layout2 />;
-
   return <Layout1 />;
 };

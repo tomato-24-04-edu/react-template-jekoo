@@ -13,12 +13,13 @@ import { dynamicMiddleware } from "./middleware";
 export type RootState = ReturnType<typeof rootReducer>;
 
 // const middlewares: Middleware[] = [apiService.middleware, dynamicMiddleware];
+const middlewares: Middleware[] = [dynamicMiddleware];
 
 export const makeStore = () => {
   const store = configureStore({
     reducer: rootReducer,
-    // middleware: (getDefaultMiddleware) =>
-    //   getDefaultMiddleware().concat(middlewares),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(middlewares),
   });
   setupListeners(store.dispatch);
   return store;
