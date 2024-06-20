@@ -1,20 +1,22 @@
 import { useEffect, memo, ReactNode, useContext } from "react";
 import { styled } from "@mui/material/styles";
-import { Layout1ConfigType } from "configs/layoutConfig";
+import { LayoutConfigType } from "configs/layoutConfig";
 import { useAppDispatch, useAppSelector } from "configs/hooks";
 import {
   selectCurrentLayout,
   changeLayout,
 } from "store/globalSlices/settingSlice";
-import { AppContext } from "../../../AppProvider";
+import { AppContext } from "../../AppProvider";
 import { useRoutes } from "react-router-dom";
 import Header from "main/components/header";
 import CustomSuspense from "configs/utils/CustomSuspense";
 import NavBar from "main/components/navBar";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import SidePanelProvider from "configs/utils/SidePanelProvider";
+import SettingPanel from "main/components/settingPanel";
 
-const Root = styled("div")(({ config }: { config: Layout1ConfigType }) => ({
+const Root = styled("div")(({ config }: { config: LayoutConfigType }) => ({
   "& .container": {
     maxWidth: `${config.containerWidth}px`,
     width: "100%",
@@ -22,13 +24,8 @@ const Root = styled("div")(({ config }: { config: Layout1ConfigType }) => ({
   },
 }));
 
-type Layout1Props = {
-  children?: ReactNode;
-};
-
-const Layout1 = (props: Layout1Props) => {
-  const { children } = props;
-  const config = useAppSelector(selectCurrentLayout) as Layout1ConfigType;
+const Layout = () => {
+  const config = useAppSelector(selectCurrentLayout);
   const { routes } = useContext(AppContext);
   const theme = useTheme();
   const hidden = useMediaQuery(theme.breakpoints.down("md"));
@@ -38,7 +35,6 @@ const Layout1 = (props: Layout1Props) => {
     dispatch(
       changeLayout({
         navbar: {
-          ...config.navbar,
           open: !config.navbar.open,
         },
       })
@@ -52,13 +48,14 @@ const Layout1 = (props: Layout1Props) => {
           <NavBar />
         )}
         <main className="relative z-10 flex min-h-full min-w-0 flex-auto flex-col">
-          {config.toolbar.display && (
-            <Header
-              className={config.toolbar.style === "fixed" ? "sticky top-0" : ""}
-            />
+          {config.header.display && <Header className={"sticky top-0"} />}
+          {config.sidepanel.open && (
+            <SidePanelProvider>
+              <SettingPanel />
+            </SidePanelProvider>
           )}
           <div className="relative z-10 flex min-h-0 flex-auto flex-col">
-            <CustomSuspense>{useRoutes(routes)}</CustomSuspense>
+              <CustomSuspense>{useRoutes(routes)}</CustomSuspense>
           </div>
         </main>
         {config.navbar.display && config.navbar.position === "right" && (
@@ -69,4 +66,4 @@ const Layout1 = (props: Layout1Props) => {
   );
 };
 
-export default memo(Layout1);
+export default memo(Layout);

@@ -4,7 +4,7 @@ import GlobalTheme from "configs/utils/ThemeProvider";
 import { useAppSelector } from "configs/hooks";
 import { selectCurrentTheme } from "store/globalSlices/settingSlice";
 import AppProvider from "./AppProvider";
-import { LayoutProvider } from "main/layouts";
+import { LayoutProvider } from "main/layout/layoutProvider";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {

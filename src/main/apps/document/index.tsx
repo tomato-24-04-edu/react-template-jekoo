@@ -202,8 +202,8 @@ const Document: React.FC = () => {
           </ListItem>
           <ListItem>
             <Typography variant="body2">
-              - layout: 화면에 컴포넌트를 배치. 주요 컨텐츠를
-              랜더할 때 동적 라우팅을 적용하여 초기 랜더링 시간 단축.
+              - layout: 화면에 컴포넌트를 배치. 주요 컨텐츠를 랜더할 때 동적
+              라우팅을 적용하여 초기 랜더링 시간 단축.
             </Typography>
           </ListItem>
           <ListItem>
@@ -236,7 +236,9 @@ const Document: React.FC = () => {
         </ListItem>
       </List>
 
-      <SubSectionTitle variant="h6">2. 테마 변경 및 추가의 경우</SubSectionTitle>
+      <SubSectionTitle variant="h6">
+        2. 테마 변경 및 추가의 경우
+      </SubSectionTitle>
       <List>
         <ListItem>
           <Typography variant="body2">- themeConfig.ts 파일 수정</Typography>
@@ -249,7 +251,6 @@ const Document: React.FC = () => {
           <Typography variant="body2">- layoutConfig.ts 파일 수정</Typography>
         </ListItem>
       </List>
-
       <SectionTitle variant="h5">추가 예정</SectionTitle>
       <Typography paragraph>todo.txt 파일 참고 (root directory)</Typography>
     </StyledContainer>

@@ -14,6 +14,8 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
       },
       secondary: {
         main: "#00A69E",
+        light: "#5BCAC4",
+        dark: "#00847E",
       },
       background: {
         default: "#ffffff",
@@ -33,6 +35,7 @@ const themesConfig: { default: ThemeOptions; dark: ThemeOptions } = {
       },
       secondary: {
         main: "#000000",
+        light: "#c9c9c9",
         dark: "#acacac",
       },
       background: {

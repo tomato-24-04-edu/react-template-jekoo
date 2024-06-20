@@ -1,28 +1,22 @@
 import { styled } from "@mui/material/styles";
 
 const Root = styled("div")(({ theme }) => ({
-  "& > .logo-icon": {
-    transition: theme.transitions.create(["width", "height"], {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.easeInOut,
-    }),
-  },
-  "& > .badge": {
-    transition: theme.transitions.create("opacity", {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.easeInOut,
-    }),
-  },
+  transition: theme.transitions.create(["width", "height"], {
+    duration: theme.transitions.duration.shortest,
+    easing: theme.transitions.easing.easeInOut,
+  }),
 }));
 
-/**
- * The logo component.
- */
-function Logo() {
+type LogoProps = {
+  height: number;
+  width: number;
+};
+
+function Logo<LogoProps>({ height, width }) {
   return (
     <Root className="flex items-center">
       <img
-        className="logo-icon h-12 w-12 "
+        style={{ width: width, height: height }}
         src="assets/images/svg/tomato_icon_1.svg"
         alt="logo"
       />

@@ -2,17 +2,13 @@ import IconButton from "@mui/material/IconButton";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Switch from "@mui/material/Switch";
-
-import Tooltip from '@mui/material/Tooltip';
-import { useEffect, useLayoutEffect, useState } from 'react';
-
+import HeaderFullScreenToggle from "configs/utils/FullScreenToggle";
 import clsx from "clsx";
 import { useAppSelector, useAppDispatch } from "configs/hooks";
 import { memo } from "react";
 import { ThemeType } from "types/configTypes";
 import themesConfig from "configs/themeConfig";
 import SvgIcon from "configs/utils/SvgProvider";
-import Logo from "configs/utils/Logo";
 import {
   selectCurrentLayout,
   selectCurrentTheme,
@@ -36,7 +32,6 @@ function Header(props: HeaderProps) {
     dispatch(
       changeLayout({
         navbar: {
-          ...currentLayout.navbar,
           open: !currentLayout.navbar.open,
         },
       })
@@ -51,9 +46,15 @@ function Header(props: HeaderProps) {
     }
   };
 
-
-
-
+  const handleSidePanelChange = () => {
+    dispatch(
+      changeLayout({
+        sidepanel: {
+          open: !currentLayout.sidepanel.open,
+        },
+      })
+    );
+  };
 
   return (
     <AppBar
@@ -79,35 +80,72 @@ function Header(props: HeaderProps) {
             <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>
           </IconButton>
         )}
-        {!currentLayout.navbar.open && (
-          <div
-            onClick={() => navigate("manage-employees")}
-            className="flex h-12 mr-10 cursor-pointer shrink-0 flex-row items-center justify-center"
-          >
-            <div className="mx-4 items-center gap-2 flex flex-1">
-              <Logo />
-              <span className="text-white font-bold text-3xl">Tomato</span>
+        {!currentLayout.navbar.open &&
+          currentLayout.navbar.position === "left" && (
+            <div
+              onClick={() => navigate("manage-employees")}
+              className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center"
+            >
+              <div className="mx-4 items-center gap-2 flex flex-1">
+                <span className="text-white absolute font-bold text-3xl">Tomato</span>
+              </div>
             </div>
+          )}
+
+        {currentLayout.navbar.position === "left" ? (
+          <div className="flex items-center">
+            <Switch
+              checked={currentTheme.palette.mode === "dark"}
+              onChange={handleThemeChange}
+              name="themeToggle"
+              color="default"
+            />
+            <HeaderFullScreenToggle />
+            <IconButton
+              onClick={handleSidePanelChange}
+              sx={{
+                "&:hover": {
+                  backgroundColor: currentTheme.palette.primary.dark,
+                },
+              }}
+            >
+              <SvgIcon className="h-8 w-8 p-0">outline:cog</SvgIcon>
+            </IconButton>
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <IconButton
+              onClick={handleSidePanelChange}
+              sx={{
+                "&:hover": {
+                  backgroundColor: currentTheme.palette.primary.dark,
+                },
+              }}
+            >
+              <SvgIcon className="h-8 w-8 p-0">outline:cog</SvgIcon>
+            </IconButton>
+            <HeaderFullScreenToggle />
+
+            <Switch
+              checked={currentTheme.palette.mode === "dark"}
+              onChange={handleThemeChange}
+              name="themeToggle"
+              color="default"
+            />
           </div>
         )}
-        <div className="flex items-center">
-          <Switch
-            checked={currentTheme.palette.mode === "dark"}
-            onChange={handleThemeChange}
-            name="themeToggle"
-            color="default"
-          />
-          <IconButton
-            onClick={handleThemeChange}
-            sx={{
-              "&:hover": {
-                backgroundColor: currentTheme.palette.primary.dark,
-              },
-            }}
-          >
-            <SvgIcon className="mx-0 h-8 w-8 p-0">outline:arrows-expand</SvgIcon>
-          </IconButton>
-        </div>
+        {!currentLayout.navbar.open &&
+          currentLayout.navbar.position === "right" && (
+            <div
+              onClick={() => navigate("manage-employees")}
+              className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center"
+            >
+              <div className="mx-4 items-center gap-2 flex flex-1">
+                <span className="text-white font-bold text-3xl">Tomato</span>
+              </div>
+            </div>
+          )}
+
         {currentLayout.navbar.position === "right" && (
           <IconButton
             sx={{
@@ -115,7 +153,6 @@ function Header(props: HeaderProps) {
                 backgroundColor: currentTheme.palette.primary.dark,
               },
             }}
-            className="flex px-8"
             onClick={handleNavbarToggle}
           >
             <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>

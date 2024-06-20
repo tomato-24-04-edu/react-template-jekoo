@@ -1,9 +1,13 @@
 import { createTheme } from "@mui/material/styles";
-import { createAsyncThunk, createSlice, createSelector } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  createSelector,
+} from "@reduxjs/toolkit";
 import { RootState } from "store/store";
 import { ThemeType } from "types/configTypes";
 import settingsConfig from "configs/settingsConfig";
-
+import _ from "lodash";
 const initialState = {
   current: settingsConfig,
 };
@@ -11,7 +15,6 @@ const initialState = {
 export const changeTheme = createAsyncThunk(
   "settings/changeTheme",
   async (theme: any, { dispatch }) => {
-    // 나중에 테마 바꿀 때 캐치할 미들웨어 액션이 있을 수 있음
     return { theme };
   }
 );
@@ -21,10 +24,7 @@ export const settingsSlice = createSlice({
   initialState,
   reducers: {
     changeLayout: (state, action) => {
-      state.current.layout = {
-        ...state.current.layout,
-        ...action.payload,
-      };
+      state.current.layout = _.merge({}, state.current.layout, action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -34,7 +34,8 @@ export const settingsSlice = createSlice({
   },
 });
 
-export const selectCurrentSettings = (state: RootState) => state.settings.current;
+export const selectCurrentSettings = (state: RootState) =>
+  state.settings.current;
 
 export const selectCurrentTheme = createSelector(
   selectCurrentSettings,
@@ -44,6 +45,16 @@ export const selectCurrentTheme = createSelector(
 export const selectCurrentLayout = createSelector(
   selectCurrentSettings,
   (settings) => settings.layout
+);
+
+export const selectSidePanel = createSelector(
+  selectCurrentSettings,
+  (settings) => settings.layout.sidepanel
+);
+
+export const selectNavBar = createSelector(
+  selectCurrentSettings,
+  (settings) => settings.layout.navbar
 );
 
 export const { changeLayout } = settingsSlice.actions;

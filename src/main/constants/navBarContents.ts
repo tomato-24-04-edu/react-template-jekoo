@@ -31,5 +31,4 @@ export const navBarContents: NavItemType[] = [
     url: "document",
     children: [],
   },
-
 ];
