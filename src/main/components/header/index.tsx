@@ -87,7 +87,7 @@ function Header(props: HeaderProps) {
               className="flex h-12 cursor-pointer shrink-0 flex-row items-center justify-center"
             >
               <div className="mx-4 items-center gap-2 flex flex-1">
-                <span className="text-white font-bold text-3xl">Tomato</span>
+                <span className="text-white absolute font-bold text-3xl">Tomato</span>
               </div>
             </div>
           )}

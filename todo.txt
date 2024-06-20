@@ -1,4 +1,3 @@
 4. mock-api 만들기
 3. redirecturl을 굳이 redux로 관리해야할 지 조사.
 10. sign in / sign out page - mock-api 이후
-11. 커스텀 스크롤바
