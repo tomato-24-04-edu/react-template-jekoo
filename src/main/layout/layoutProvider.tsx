@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useContext, useMemo, useRef } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useContext,
+  useMemo,
+  useRef,
+} from "react";
 import { AppContext } from "../../AppProvider";
 import Layout from "./layout";
 import _ from "lodash";
@@ -32,6 +38,7 @@ export const LayoutProvider = () => {
     | RouteMatchType[]
     | null;
   const matched = matchedRoutes?.[0] || false;
+
   useEffect(() => {
     window.scrollTo(0, 0);
     if (typeof matched !== "boolean") {

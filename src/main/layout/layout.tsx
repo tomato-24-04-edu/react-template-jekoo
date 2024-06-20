@@ -14,7 +14,7 @@ import NavBar from "main/components/navBar";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import SidePanelProvider from "configs/utils/SidePanelProvider";
-import SidePanel from "main/components/sidePanel";
+import SettingPanel from "main/components/settingPanel";
 
 const Root = styled("div")(({ config }: { config: LayoutConfigType }) => ({
   "& .container": {
@@ -51,7 +51,7 @@ const Layout = () => {
           {config.header.display && <Header className={"sticky top-0"} />}
           {config.sidepanel.open && (
             <SidePanelProvider>
-              <SidePanel />
+              <SettingPanel />
             </SidePanelProvider>
           )}
           <div className="relative z-10 flex min-h-0 flex-auto flex-col">

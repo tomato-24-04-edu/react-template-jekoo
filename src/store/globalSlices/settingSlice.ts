@@ -8,7 +8,6 @@ import { RootState } from "store/store";
 import { ThemeType } from "types/configTypes";
 import settingsConfig from "configs/settingsConfig";
 import _ from "lodash";
-
 const initialState = {
   current: settingsConfig,
 };
@@ -16,7 +15,6 @@ const initialState = {
 export const changeTheme = createAsyncThunk(
   "settings/changeTheme",
   async (theme: any, { dispatch }) => {
-    // 나중에 테마 바꿀 때 캐치할 미들웨어 액션이 있을 수 있음
     return { theme };
   }
 );

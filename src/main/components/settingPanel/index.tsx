@@ -42,7 +42,7 @@ const PanelContainer = styled("div")(({ theme }) => ({
   margin: "0px 30px",
 }));
 
-const SidePanel: React.FC = () => {
+const SettingPanel: React.FC = () => {
   const dispatch = useAppDispatch();
   const currentLayout = useAppSelector(selectCurrentLayout);
 
@@ -79,4 +79,4 @@ const SidePanel: React.FC = () => {
   );
 };
 
-export default SidePanel;
+export default SettingPanel;
