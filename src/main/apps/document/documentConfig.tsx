@@ -4,16 +4,15 @@ import Document from ".";
 const DocumentConfig: RouteConfigType = {
   settings: {
     layout: {
-      config: {
-        navbar: {
-          display: true,
-        },
-        header: {
-          display: true,
-        },
+      navbar: {
+        display: true,
+      },
+      header: {
+        display: true,
       },
     },
   },
+
   auth: null,
   routes: [
     {

@@ -13,7 +13,7 @@ import { Divider as MuiDivider } from "@mui/material";
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   "& .MuiDrawer-paper": {
-    width: 480,
+    width: 400,
     backgroundColor: theme.palette.secondary.main,
   },
 }));
@@ -52,6 +52,7 @@ function SidePanelProvider({ children }) {
   return (
     <StyledSwipeableDrawer
       open={panelConfig.open}
+      // @ts-ignore
       anchor={panelConfig.position}
       onOpen={() => {}}
       onClose={handleClose}

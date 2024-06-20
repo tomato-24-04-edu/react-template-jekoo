@@ -47,7 +47,6 @@ function Header(props: HeaderProps) {
   };
 
   const handleSidePanelChange = () => {
-    console.log(currentLayout.sidepanel.open);
     dispatch(
       changeLayout({
         sidepanel: {
@@ -154,7 +153,6 @@ function Header(props: HeaderProps) {
                 backgroundColor: currentTheme.palette.primary.dark,
               },
             }}
-            className="flex px-8"
             onClick={handleNavbarToggle}
           >
             <SvgIcon className="h-8 w-8 p-0">outline:view-list</SvgIcon>

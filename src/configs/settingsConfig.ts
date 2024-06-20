@@ -4,7 +4,6 @@ import { LayOut1Config } from "./layoutConfig";
 
 const settingsConfig: SettingsConfigType = {
   layout: LayOut1Config,
-  customScrollbars: false,
   theme: themesConfig.default,
   defaultAuth: ["user"],
   loginRedirectUrl: "/",

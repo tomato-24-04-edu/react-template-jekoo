@@ -1,5 +1,5 @@
 import { alpha, ThemeProvider } from "@mui/material/styles";
-import { memo, ReactNode, useEffect, useLayoutEffect } from "react";
+import { memo, ReactNode, useEffect } from "react";
 import { Theme } from "@mui/material/styles/createTheme";
 import GlobalStyles from "@mui/material/GlobalStyles";
 
@@ -19,7 +19,6 @@ const inputGlobalStyles = (
         backgroundColor: theme.palette.background.default,
         color: theme.palette.text.primary,
       },
-
       "table.simple tbody tr th": {
         borderColor: theme.palette.divider,
       },
@@ -53,7 +52,9 @@ const inputGlobalStyles = (
       hr: {
         borderColor: theme.palette.divider,
       },
-
+      "::-webkit-scrollbar": {
+        width: 8,
+      },
       "::-webkit-scrollbar-thumb": {
         boxShadow: `inset 0 0 0 20px ${
           theme.palette.mode === "light"

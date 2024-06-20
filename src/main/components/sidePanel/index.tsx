@@ -11,6 +11,7 @@ import {
   selectCurrentLayout,
 } from "store/globalSlices/settingSlice";
 import { styled } from "@mui/material/styles";
+import _ from "lodash";
 
 const Title = styled(Typography)(({ theme }) => ({
   fontWeight: "bold",
@@ -46,7 +47,15 @@ const SidePanel: React.FC = () => {
   const currentLayout = useAppSelector(selectCurrentLayout);
 
   const handleLayoutChange = (layoutConfig: LayoutConfigType) => {
-    dispatch(changeLayout(layoutConfig));
+    dispatch(
+      changeLayout(
+        _.merge({}, layoutConfig, {
+          navbar: {
+            open: true,
+          },
+        })
+      )
+    );
   };
 
   return (

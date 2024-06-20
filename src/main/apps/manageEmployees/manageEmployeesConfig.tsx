@@ -4,13 +4,11 @@ import ManageEmployees from ".";
 const ManageEmployeesConfig: RouteConfigType = {
   settings: {
     layout: {
-      config: {
-        navbar: {
-          display: false,
-        },
-        header: {
-          display: false,
-        },
+      navbar: {
+        display: true,
+      },
+      header: {
+        display: true,
       },
     },
   },
